@@ -6,8 +6,15 @@
     <description>Recent content on Andrew Liang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 24 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Sep 2024 13:40:59 -0700</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data Processing for Pre-training Llama 3.1</title>
+      <link>http://localhost:1313/post/llama3.1-pretraining-data/</link>
+      <pubDate>Fri, 20 Sep 2024 13:40:59 -0700</pubDate>
+      <guid>http://localhost:1313/post/llama3.1-pretraining-data/</guid>
+      <description>The performance of large language models (LLMs) is highly dependent on the quality of the data they are trained on. However, the data curation and cleaning process is underrated in today&amp;rsquo;s discussions of AI.&#xA;This article illustrates how Llama 3.1 developers collect and clean data to be used for pre-training Llama 3.1, which involved a multi-faceted approach to data curation, cleaning, and filtering. The main content is taken from the technical report of Llama 3.</description>
+    </item>
     <item>
       <title>Patrick Collison&#39;s latest interview on Jensen Huang</title>
       <link>http://localhost:1313/post/patrick-on-jensen/</link>
