@@ -1,0 +1,7 @@
+[submodule "themes/even"]
+    path = themes/even
+    url = git@github.com:zleung9/hugo-theme-even.git
+
+[submodule "themes/poison"]
+    path = themes/poison
+    url = git@github.com:lukeorth/poison.git

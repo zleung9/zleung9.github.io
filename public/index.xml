@@ -2,18 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Andrew Liang</title>
-    <link>https://example.org/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on Andrew Liang</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 09 Apr 2024 15:17:27 -0700</lastBuildDate>
-    <atom:link href="https://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Fri, 20 Sep 2024 13:40:59 -0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>My First Post</title>
-      <link>https://example.org/posts/my-first-post/</link>
-      <pubDate>Tue, 09 Apr 2024 15:17:27 -0700</pubDate>
-      <guid>https://example.org/posts/my-first-post/</guid>
-      <description>Introduction This is bold text, and this is emphasized text.&#xA;Visit the Hugo website!</description>
+      <title>Data Processing for Pre-training Llama 3.1</title>
+      <link>http://localhost:1313/post/llama3.1-pretraining-data/</link>
+      <pubDate>Fri, 20 Sep 2024 13:40:59 -0700</pubDate>
+      <guid>http://localhost:1313/post/llama3.1-pretraining-data/</guid>
+      <description>The performance of large language models (LLMs) is highly dependent on the quality of the data they are trained on. However, the data curation and cleaning process is underrated in today&amp;rsquo;s discussions of AI.&#xA;This article illustrates how Llama 3.1 developers collect and clean data to be used for pre-training Llama 3.1, which involved a multi-faceted approach to data curation, cleaning, and filtering. The main content is taken from the technical report of Llama 3.</description>
+    </item>
+    <item>
+      <title>Patrick Collison&#39;s latest interview on Jensen Huang</title>
+      <link>http://localhost:1313/post/patrick-on-jensen/</link>
+      <pubDate>Wed, 24 Apr 2024 19:29:54 -0700</pubDate>
+      <guid>http://localhost:1313/post/patrick-on-jensen/</guid>
+      <description>On April 24th, Patrick Collison, CEO of Stripe, interviewed Jensen Huang, who is the CEO of Nvidia. Below are the main takeaways:&#xA;No One-on-One Meetings. Jensen has 60 directors who report to him, but he prefers not to have one-on-one meetings. By having all 60 directors together at once, he has eliminated at least 7 layers from the company&amp;rsquo;s structure. He believes it is more effective to communicate with all stakeholders simultaneously, allowing information to flow more efficiently among people.</description>
+    </item>
+    <item>
+      <title>爆米花大脑和刷手机</title>
+      <link>http://localhost:1313/post/popcorn-brain/popcorn-brain/</link>
+      <pubDate>Fri, 12 Apr 2024 08:00:44 -0700</pubDate>
+      <guid>http://localhost:1313/post/popcorn-brain/popcorn-brain/</guid>
+      <description>最近听到一个词叫作爆米花大脑， 用来形容由于长时间上网而导致过度刺激，引起大脑神经电路&amp;quot;爆裂&amp;quot;的感觉。&amp;ldquo;爆米花</description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/about-space-and-time/</link>
+      <pubDate>Mon, 01 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about-space-and-time/</guid>
+      <description></description>
     </item>
   </channel>
 </rss>

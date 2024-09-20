@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JensenHuang on Andrew Liang</title>
+    <link>http://localhost:1313/tags/jensenhuang/</link>
+    <description>Recent content in JensenHuang on Andrew Liang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 24 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/jensenhuang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Patrick Collison&#39;s latest interview on Jensen Huang</title>
+      <link>http://localhost:1313/post/patrick-on-jensen/</link>
+      <pubDate>Wed, 24 Apr 2024 19:29:54 -0700</pubDate>
+      <guid>http://localhost:1313/post/patrick-on-jensen/</guid>
+      <description>On April 24th, Patrick Collison, CEO of Stripe, interviewed Jensen Huang, who is the CEO of Nvidia. Below are the main takeaways:&#xA;No One-on-One Meetings. Jensen has 60 directors who report to him, but he prefers not to have one-on-one meetings. By having all 60 directors together at once, he has eliminated at least 7 layers from the company&amp;rsquo;s structure. He believes it is more effective to communicate with all stakeholders simultaneously, allowing information to flow more efficiently among people.</description>
+    </item>
+  </channel>
+</rss>

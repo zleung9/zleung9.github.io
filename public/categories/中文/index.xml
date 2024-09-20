@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>中文 on Andrew Liang</title>
+    <link>http://localhost:1313/categories/%E4%B8%AD%E6%96%87/</link>
+    <description>Recent content in 中文 on Andrew Liang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 24 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/%E4%B8%AD%E6%96%87/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>爆米花大脑和刷手机</title>
+      <link>http://localhost:1313/post/popcorn-brain/popcorn-brain/</link>
+      <pubDate>Fri, 12 Apr 2024 08:00:44 -0700</pubDate>
+      <guid>http://localhost:1313/post/popcorn-brain/popcorn-brain/</guid>
+      <description>最近听到一个词叫作爆米花大脑， 用来形容由于长时间上网而导致过度刺激，引起大脑神经电路&amp;quot;爆裂&amp;quot;的感觉。&amp;ldquo;爆米花</description>
+    </item>
+  </channel>
+</rss>
