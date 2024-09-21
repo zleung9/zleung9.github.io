@@ -58,19 +58,55 @@ $global-lineheight: 1.5 !default;
 $global-font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif !default;
 
 // Serif font family of the site.
-$global-serif-font-family: Athelas, STHeiti, Microsoft Yahei, serif !default;
+$global-serif-font-family: Athelas, STHeiti, serif, Microsoft Yahei !default;
 
 // Background color of the site.
 $global-background: $white !default;
 
 // Headings font size of the site.
 $global-headings: (
-  h1: 26px,
-  h2: 24px,
-  h3: 20px,
-  h4: 16px,
-  h5: 14px,
-  h6: 14px
+  h1: (
+    size: 26px,
+    weight: 500,
+    top: -0.25em,
+    left: 0em,
+    bottom: -0.25em
+  ),
+  h2: (
+    size: 20px,
+    weight: 500,
+    top: -0.25em,
+    left: 0em,
+    bottom: -0.75em
+  ),
+  h3: (
+    size: 16px,
+    weight: 500,
+    top: -0.25em,
+    left: 0em,
+    bottom: -01em
+  ),
+  h4: (
+    size: 16px,
+    weight: 400,
+    top: 0.6em,
+    left: 0.3em,
+    bottom: 0.4em
+  ),
+  h5: (
+    size: 16px,
+    weight: 400,
+    top: 0.5em,
+    left: 0.2em,
+    bottom: 0.3em
+  ),
+  h6: (
+    size: 16px,
+    weight: 400,
+    top: 0.5em,
+    left: 0.2em,
+    bottom: 0.3em
+  )
 ) !default;
 
 
@@ -96,7 +132,7 @@ $header-padding: 20px 20px !default;
 $logo-font-size: 48px !default;
 
 // Font family of the logo.
-$logo-font-family: 'Chancery', cursive, LiSu, sans-serif !default;
+$logo-font-family: 'Chancery', LiSu, sans-serif !default;
 
 // Margin of menu item.
 $menu-item-margin-left: 10px !default;
@@ -121,7 +157,7 @@ $post-padding: 1.5em 0 !default;
 $post-border: 1px solid $light-gray !default;
 
 // Font size of post title.
-$post-title-font-size: 27px !default;
+$post-title-font-size: 30px !default;
 
 // Font weight of post title.
 $post-title-font-weight: 400 !default;
@@ -294,7 +330,7 @@ $archive-max-width: 550px !default;
 $archive-name-font-size: 30px !default;
 
 // Font size of the collection title.
-$collection-title-font-size: 28px !default;
+$collection-title-font-size: 30px !default;
 
 // Padding of the archive post.
 $archive-post-padding: 3px 20px !default;

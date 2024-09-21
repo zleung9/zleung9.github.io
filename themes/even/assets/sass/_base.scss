@@ -57,10 +57,24 @@ a {
   text-decoration: none;
 }
 
-@each $header, $size in $global-headings {
+// @each $header, $size in $global-headings {
+//   #{$header} {
+//     font-size: $size;
+//     font-family: $global-serif-font-family;
+//     margin-top: -0.5em; // Adjust top margin for spacing
+//     margin-bottom: -0.5em; // Adjust bottom margin for spacing
+//     padding-left: -20px; // Adjust left padding for indentation
+//   }
+// }
+@each $header, $properties in $global-headings {
   #{$header} {
-    font-size: $size;
-    font-family: $global-serif-font-family;
+    font-size: map-get($properties, size);
+    font-weight: map-get($properties, weight);
+    margin-top: map-get($properties, top);
+    margin-bottom: map-get($properties, bottom);
+    margin-left: map-get($properties, left);
+    font-weight: map-get($properties, weight);
+    font-family: $global-font-family;
   }
 }
 
