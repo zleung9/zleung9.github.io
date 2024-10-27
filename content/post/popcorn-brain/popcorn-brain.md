@@ -1,12 +1,13 @@
-+++
-title = '爆米花大脑和刷手机'
-date = 2024-04-12T08:00:44-07:00
-lastMod = 2024-04-24
-draft = false
-tags = ["Brain", "TimeManagement", "EnergyManagement"]
-categories = ["中文"]
-author = "LZ"
-+++
+---
+draft: false
+title: '爆米花大脑和刷手机'
+date: 2024-04-12T08:00:44-07:00
+lastMod: 2024-04-24
+tags:
+categories:
+authors:
+    - admin
+---
 
 最近听到一个词叫作爆米花大脑， 用来形容由于长时间上网而导致过度刺激，引起大脑神经电路"爆裂"的感觉。"爆米花大脑"这个概念是由心理学家Dr. Levy提出的， 与简单的网络成瘾不同，爆米花大脑在现代生活中无处不在，尤其是当人们感到压力或焦虑时更为常见。
 

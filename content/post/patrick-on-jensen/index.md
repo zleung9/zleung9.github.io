@@ -1,12 +1,13 @@
-+++
-title = "Patrick Collison's latest interview on Jensen Huang"
-date = 2024-04-24T19:29:54-07:00
-lastmod = 2024-04-24
-draft = false
-tags = ["JensenHuang", "PatrickCollison"]
-categories = ["Interview"]
-author = "LZ"
-+++
+---
+draft: false
+title: "Patrick Collison's latest interview on Jensen Huang"
+date: 2024-04-24T19:29:54-07:00
+lastmod: 2024-04-24
+tags: []
+categories: []
+authors:
+- admin
+---
 
 <center><img 
     src="patrick-on-jensen.png" 

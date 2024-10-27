@@ -1,19 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>TimeManagement on Andrew Liang</title>
+    <title>TimeManagement | Hugo Academic CV Theme</title>
     <link>http://localhost:1313/tags/timemanagement/</link>
-    <description>Recent content in TimeManagement on Andrew Liang</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Wed, 24 Apr 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/timemanagement/index.xml" rel="self" type="application/rss+xml" />
+      <atom:link href="http://localhost:1313/tags/timemanagement/index.xml" rel="self" type="application/rss+xml" />
+    <description>TimeManagement</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 12 Apr 2024 08:00:44 -0700</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu7729264130191091259.png</url>
+      <title>TimeManagement</title>
+      <link>http://localhost:1313/tags/timemanagement/</link>
+    </image>
+    
     <item>
       <title>爆米花大脑和刷手机</title>
       <link>http://localhost:1313/post/popcorn-brain/popcorn-brain/</link>
       <pubDate>Fri, 12 Apr 2024 08:00:44 -0700</pubDate>
       <guid>http://localhost:1313/post/popcorn-brain/popcorn-brain/</guid>
-      <description>最近听到一个词叫作爆米花大脑， 用来形容由于长时间上网而导致过度刺激，引起大脑神经电路&amp;quot;爆裂&amp;quot;的感觉。&amp;ldquo;爆米花</description>
+      <description>&lt;p&gt;最近听到一个词叫作爆米花大脑， 用来形容由于长时间上网而导致过度刺激，引起大脑神经电路&amp;quot;爆裂&amp;quot;的感觉。&amp;ldquo;爆米花大脑&amp;quot;这个概念是由心理学家Dr. Levy提出的， 与简单的网络成瘾不同，爆米花大脑在现代生活中无处不在，尤其是当人们感到压力或焦虑时更为常见。&lt;/p&gt;
+&lt;p&gt;正如哈佛大学医生Aditi Nerurkar所解释的那样，人们不断滚动浏览信息的冲动，本质上是一种由于进化的缘故而根植于人类基因中的扫视危险的本能，这一本能主要由大脑中的杏仁核主导。只不过，现代人已将扫视的对象从物理环境转移到了手机、社交媒体等数字内容上。受这种原始的扫视危险的冲动驱使，过度接触数字信息就会导致精神过度刺激和注意力分散，造成所谓的&amp;quot;爆米花大脑&amp;quot;状态。&lt;/p&gt;
+&lt;p&gt;最近休息了一段时间，我才意识到之前我的大脑似乎总是处于一种紧绷状态。收集的信息越来越多，深度思考越来越少；工作时间排得满满当当，大多数时候只是在重复一些既定的行为模式，谈不上高效率，也没有很多创造性的思考。注意力经常涣散，如果在思考时产生短暂的卡顿，就会控制不住地打开手机刷起短视频、新闻等。&lt;/p&gt;
+&lt;p&gt;和好友聊到这个话题，他说我们用忙碌来填充无意义工作带来的空虚感，这种忙碌的状态给我们一种高效的错觉。实际上，如《深度工作》一书中提到的，真正重要的是把有限的注意力集中在关键任务上，而非简单地填满时间。这本书提到了&amp;quot;固定日程生产力&amp;quot;的方法，就是将工作内容与时间期限分离开，避免简单地将工作时间等同于工作完成的多少。有时候严格地限制工作时间反而会取得意想不到的效果。&lt;/p&gt;
+&lt;p&gt;如何拯救被忙碌和信息洪流毁掉的”爆米花大脑“？通过这段时间的休息，我逐步找到了一些应对之策:&lt;/p&gt;
+&lt;p&gt;第一步是真正暂时抽离，放下手头的一切工作和烦扰，给自己一段安静独处的时光。正如中国古语所说&amp;quot;知止而后有定，定而后能静，静而后能安，安而后能虑，虑而后能得&amp;rdquo;。只有先学会停下来，远离纷扰，才能开始审视内心，找到真正重要的事物。&lt;/p&gt;
+&lt;p&gt;第二步是做减法，剔除生活中那些不太重要的人和事。对我而言，最重要的是自身的身体健康(其中包括大脑)、与家人朋友的感情联系。很多表面上维系的人际弱联接和害怕错过的信息源，大部分的时间只是在消耗注意力，可以适当的抛弃。我尝试把邮箱里未读的几十封Newsletter统统删掉，第一次感受到前所未有的清爽与轻松。关于弱联接，还有一句话十分受用：不要想着通过强连接来提升自己，或者通过弱连接来证明自己。很多社交上的心累，就是因为过于在意别人对你的看法。&lt;/p&gt;
+&lt;p&gt;第三步是建立界限，去掉导致不当行为的诱因(Prompt)。心理学家BJ福格提出了影响行为的&amp;quot;福格行为模型&amp;quot;:B=MAP，其中B是Behavior(行为)，M是Motivation(动机)，A是Ability(能力)，P是Prompt(诱因)。刷手机只需要动动手指，而我们的动机往往以很高，所以一个有效的方法就是去除诱因。为了去掉那些可能诱发分心行为的诱因，我清理了微信上的朋友圈，只选择性关注少数人的朋友圈，我静音了全部消息，包括个人和群组，并把大部分群组都移到了隐藏组里。我给手机设置了晚上10点到早上8点之间是downtime，没有消息提示，并且所以的消息类应用在这期间都无法使用。&lt;/p&gt;
+&lt;p&gt;然后我发现，整个世界都清静了。原来主动截断信息并不会让你错过重要的事情，反而让你可以静下来，仔细想想哪些信息和人际关系是重要的。”静而后能安，安而后能虑“，我开始想如何去主动获取少数的重要的信息。这种掌控感很棒。&lt;/p&gt;
+</description>
     </item>
+    
   </channel>
 </rss>
