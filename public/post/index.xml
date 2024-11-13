@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo Academic CV Theme</title>
-    <link>http://localhost:1313/post/</link>
-      <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://example.com/post/</link>
+      <atom:link href="https://example.com/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Hugo Academic CV Theme</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Wed, 24 Apr 2024 19:29:54 -0700</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 20 Sep 2024 13:40:59 -0700</lastBuildDate>
     <image>
-      <url>http://localhost:1313/media/icon_hu7729264130191091259.png</url>
+      <url>https://example.com/media/icon_hu7729264130191091259.png</url>
       <title>Hugo Academic CV Theme</title>
-      <link>http://localhost:1313/post/</link>
+      <link>https://example.com/post/</link>
     </image>
     
     <item>
       <title>Patrick Collison&#39;s latest interview on Jensen Huang</title>
-      <link>http://localhost:1313/post/patrick-on-jensen/</link>
+      <link>https://example.com/post/patrick-on-jensen/</link>
       <pubDate>Wed, 24 Apr 2024 19:29:54 -0700</pubDate>
-      <guid>http://localhost:1313/post/patrick-on-jensen/</guid>
+      <guid>https://example.com/post/patrick-on-jensen/</guid>
       <description>&lt;center&gt;&lt;img 
     src=&#34;patrick-on-jensen.png&#34; 
     alt=&#34;Patrick interviewing Jensen&#34; 
@@ -46,9 +46,9 @@
     
     <item>
       <title>爆米花大脑和刷手机</title>
-      <link>http://localhost:1313/post/popcorn-brain/popcorn-brain/</link>
+      <link>https://example.com/post/popcorn-brain/popcorn-brain/</link>
       <pubDate>Fri, 12 Apr 2024 08:00:44 -0700</pubDate>
-      <guid>http://localhost:1313/post/popcorn-brain/popcorn-brain/</guid>
+      <guid>https://example.com/post/popcorn-brain/popcorn-brain/</guid>
       <description>&lt;p&gt;最近听到一个词叫作爆米花大脑， 用来形容由于长时间上网而导致过度刺激，引起大脑神经电路&amp;quot;爆裂&amp;quot;的感觉。&amp;ldquo;爆米花大脑&amp;quot;这个概念是由心理学家Dr. Levy提出的， 与简单的网络成瘾不同，爆米花大脑在现代生活中无处不在，尤其是当人们感到压力或焦虑时更为常见。&lt;/p&gt;
 &lt;p&gt;正如哈佛大学医生Aditi Nerurkar所解释的那样，人们不断滚动浏览信息的冲动，本质上是一种由于进化的缘故而根植于人类基因中的扫视危险的本能，这一本能主要由大脑中的杏仁核主导。只不过，现代人已将扫视的对象从物理环境转移到了手机、社交媒体等数字内容上。受这种原始的扫视危险的冲动驱使，过度接触数字信息就会导致精神过度刺激和注意力分散，造成所谓的&amp;quot;爆米花大脑&amp;quot;状态。&lt;/p&gt;
 &lt;p&gt;最近休息了一段时间，我才意识到之前我的大脑似乎总是处于一种紧绷状态。收集的信息越来越多，深度思考越来越少；工作时间排得满满当当，大多数时候只是在重复一些既定的行为模式，谈不上高效率，也没有很多创造性的思考。注意力经常涣散，如果在思考时产生短暂的卡顿，就会控制不住地打开手机刷起短视频、新闻等。&lt;/p&gt;

@@ -2,61 +2,61 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Article-Journal | Hugo Academic CV Theme</title>
-    <link>http://localhost:1313/publication_types/article-journal/</link>
-      <atom:link href="http://localhost:1313/publication_types/article-journal/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://example.com/publication_types/article-journal/</link>
+      <atom:link href="https://example.com/publication_types/article-journal/index.xml" rel="self" type="application/rss+xml" />
     <description>Article-Journal</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 01 Jan 2023 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/media/icon_hu7729264130191091259.png</url>
+      <url>https://example.com/media/icon_hu7729264130191091259.png</url>
       <title>Article-Journal</title>
-      <link>http://localhost:1313/publication_types/article-journal/</link>
+      <link>https://example.com/publication_types/article-journal/</link>
     </image>
     
     <item>
       <title>Decoding structure-spectrum relationships with physically organized latent spaces</title>
-      <link>http://localhost:1313/publication/liang-2023-decoding/</link>
+      <link>https://example.com/publication/liang-2023-decoding/</link>
       <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/publication/liang-2023-decoding/</guid>
+      <guid>https://example.com/publication/liang-2023-decoding/</guid>
       <description></description>
     </item>
     
     <item>
       <title>DEHP- extractant binding to trivalent lanthanide Er3&#43;: Fast binding accompanied by concerted angular motions of hydration water</title>
-      <link>http://localhost:1313/publication/liang-2023-dehp/</link>
+      <link>https://example.com/publication/liang-2023-dehp/</link>
       <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/publication/liang-2023-dehp/</guid>
+      <guid>https://example.com/publication/liang-2023-dehp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Uncertainty-aware predictions of molecular X-ray absorption spectra using neural network ensembles</title>
-      <link>http://localhost:1313/publication/animesh-2023-uncertainty/</link>
+      <link>https://example.com/publication/animesh-2023-uncertainty/</link>
       <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/publication/animesh-2023-uncertainty/</guid>
+      <guid>https://example.com/publication/animesh-2023-uncertainty/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Antagonistic role of aqueous complexation in the solvent extraction and separation of rare earth ions</title>
-      <link>http://localhost:1313/publication/sun-2021-antagonistic/</link>
+      <link>https://example.com/publication/sun-2021-antagonistic/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/publication/sun-2021-antagonistic/</guid>
+      <guid>https://example.com/publication/sun-2021-antagonistic/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Nanoscale view of assisted ion transport across the liquid--liquid interface</title>
-      <link>http://localhost:1313/publication/liang-2019-nanoscale/</link>
+      <link>https://example.com/publication/liang-2019-nanoscale/</link>
       <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/publication/liang-2019-nanoscale/</guid>
+      <guid>https://example.com/publication/liang-2019-nanoscale/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Molecular structure of canonical liquid crystal interfaces</title>
-      <link>http://localhost:1313/publication/sadati-2017-molecular/</link>
+      <link>https://example.com/publication/sadati-2017-molecular/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/publication/sadati-2017-molecular/</guid>
+      <guid>https://example.com/publication/sadati-2017-molecular/</guid>
       <description></description>
     </item>
     
