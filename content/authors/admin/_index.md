@@ -24,7 +24,7 @@ role:
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
-  - name: 
+  - name: Canyon Magnetic Energy
     url: 
 
 # Social network links
@@ -45,66 +45,13 @@ profiles:
     url: https://scholar.google.com/citations?user=DUxCM1EAAAAJ&hl=en
 
 interests:
+  - Physics & Mathmatics
+  - Energy & Climate Technology
+  - Optimization Problems
   - Artificial Intelligence
-  - Language Model
-  - Material Science
-  - Climate Technology
+  - Digital Twin
 
-education:
-  - area: PhD Physics
-    institution: Stanford University
-    date_start: 2016-01-01
-    date_end: 2020-12-31
-    summary: |
-      Thesis on _Why LLMs are awesome_. Supervised by [Prof Joe Smith](https://example.com). Presented papers at 5 IEEE conferences with the contributions being published in 2 Springer journals.
-    button:
-      text: 'Read Thesis'
-      url: 'https://example.com'
-  - area: MEng Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    date_start: 2016-01-01
-    date_end: 2020-12-31
-    summary: |
-      GPA: 3.8/4.0
 
-      Courses included:
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - area: BSc Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    date_start: 2016-01-01
-    date_end: 2020-12-31
-    summary: |
-      GPA: 3.4/4.0
-      
-      Courses included:
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-work:
-  - position: Director of Cloud Infrastructure
-    company_name: GenCoin
-    company_url: ''
-    company_logo: ''
-    date_start: 2021-01-01
-    date_end: ''
-    summary: |2-
-      Responsibilities include:
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - position: Backend Software Engineer
-    company_name: X
-    company_url: ''
-    company_logo: ''
-    date_start: 2016-01-01
-    date_end: 2020-12-31
-    summary: |
-      Responsibilities include:
-      - Migrated infrastructure to a new data center
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
 
 # Skills
 # Add your own SVG icons to `assets/media/icons/`
@@ -181,5 +128,10 @@ awards:
 ---
 
 ## About Me
+My name is Andrew. My friends call me Zhu (as in Drew). I am a physicist by training, with a deep background in physics and material science. My academic journey took me through a PhD in Physics at Stanford University, where I explored the fascinating intersections of material science and technology.
 
-[To be added]
+I have a profound interest in artificial intelligence, which has been a driving force in my career. My passion for deep tech and climate tech investment has led me to work on innovative solutions that address some of the most pressing challenges of our time. I am particularly enthusiastic about leveraging AI to create sustainable and impactful technologies.
+
+In my professional life, I have been involved in various projects that blend my expertise in physics with cutting-edge AI applications. This unique combination allows me to contribute to the advancement of technology in meaningful ways.
+Outside of work, I enjoy exploring new ideas and staying updated with the latest trends in technology and investment. I am always eager to connect with like-minded individuals who share a passion for innovation and sustainability.
+

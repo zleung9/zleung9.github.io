@@ -9,10 +9,10 @@ main:
     weight: 1
   - name: Blog
     url: post/
-    weight: 10
+    weight: 30
   - name: Papers
     url: publication/
-    weight: 20
+    weight: 10
   - name: Projects
     url: project/
-    weight: 30
+    weight: 20
