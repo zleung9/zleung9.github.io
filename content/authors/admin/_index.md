@@ -1,6 +1,6 @@
 ---
 # Display name
-title: Zhu (Andrew) Liang
+title: Zhu (Andrew) Liang, PhD
 
 # Name pronunciation (optional)
 name_pronunciation: 

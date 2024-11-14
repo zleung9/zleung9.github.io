@@ -13,11 +13,51 @@
     </image>
     
     <item>
-      <title>CUDA Project</title>
-      <link>https://example.com/project/cuda/</link>
-      <pubDate>Wed, 01 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>https://example.com/project/cuda/</guid>
-      <description></description>
+      <title>An autonomous Opentron Robot on Solutioin Making</title>
+      <link>https://example.com/project/auto-control/</link>
+      <pubDate>Thu, 14 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://example.com/project/auto-control/</guid>
+      <description>&lt;p&gt;[to be added]&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>A python package for Bayesion Optimization on Battery Electrolyte</title>
+      <link>https://example.com/project/bayesion-optimization/</link>
+      <pubDate>Thu, 07 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://example.com/project/bayesion-optimization/</guid>
+      <description>&lt;p&gt;[to be added]&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>An Neural network that predicts the cycling number of coin cell testings</title>
+      <link>https://example.com/project/battery-life/</link>
+      <pubDate>Sat, 06 May 2023 00:00:00 +0000</pubDate>
+      <guid>https://example.com/project/battery-life/</guid>
+      <description>&lt;p&gt;[to be added]&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>A neural network that carries the physical meaning of XAS spectrum</title>
+      <link>https://example.com/project/rank-aae/</link>
+      <pubDate>Fri, 16 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://example.com/project/rank-aae/</guid>
+      <description>&lt;p&gt;[to be added]&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>A molecular dynamics simulation on liquid-liquid interface</title>
+      <link>https://example.com/project/md-interface/</link>
+      <pubDate>Sat, 07 May 2022 00:00:00 +0000</pubDate>
+      <guid>https://example.com/project/md-interface/</guid>
+      <description>&lt;p&gt;[to be added]&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>A python GUI software on data analysis for XFTNR</title>
+      <link>https://example.com/project/xfntr/</link>
+      <pubDate>Sat, 10 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>https://example.com/project/xfntr/</guid>
+      <description>&lt;p&gt;[to be added]&lt;/p&gt;</description>
     </item>
     
   </channel>

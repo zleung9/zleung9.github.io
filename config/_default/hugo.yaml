@@ -27,6 +27,7 @@ enableGitInfo: false
 summaryLength: 30
 pagination:
   pagerSize: 10
+  pagerLimit: 10
 enableEmoji: true
 enableRobotsTXT: true
 footnotereturnlinkcontents: <sup>^</sup>
@@ -41,7 +42,7 @@ imaging:
   resampleFilter: Lanczos
   quality: 80
   anchor: Smart
-timeout: 600000
+timeout: 30s
 taxonomies:
   author: authors
   tag: tags
