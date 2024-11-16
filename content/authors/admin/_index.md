@@ -128,10 +128,7 @@ awards:
 ---
 
 ## About Me
-My name is Andrew. My friends call me Zhu (as in Drew). I am a physicist by training, with a deep background in physics and material science. My academic journey took me through a PhD in Physics at Stanford University, where I explored the fascinating intersections of material science and technology.
-
-I have a profound interest in artificial intelligence, which has been a driving force in my career. My passion for deep tech and climate tech investment has led me to work on innovative solutions that address some of the most pressing challenges of our time. I am particularly enthusiastic about leveraging AI to create sustainable and impactful technologies.
-
-In my professional life, I have been involved in various projects that blend my expertise in physics with cutting-edge AI applications. This unique combination allows me to contribute to the advancement of technology in meaningful ways.
+My name is Andrew. My friends call me Zhu (as in Drew). I am a physicist by training, with a deep background in physics and material science. My academic journey took me through a PhD in Physics at University of Illinois at Chicago. I have a profound interest in combining artificial intelligence with physics, which has been a driving force in my career. 
+In my professional life, I have been involved in various projects that blend my expertise in physics with cutting-edge AI applications. My passion for deep tech and climate tech investment has led me to work on innovative solutions that address some of the most pressing challenges of our time. I am particularly enthusiastic about leveraging AI to create sustainable and impactful technologies.
 Outside of work, I enjoy exploring new ideas and staying updated with the latest trends in technology and investment. I am always eager to connect with like-minded individuals who share a passion for innovation and sustainability.
 
