@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Courses on Andrew Liang</title>
+    <link>/projects/</link>
+    <description>Recent content in Courses on Andrew Liang</description>
+    <generator>Hugo -- 0.123.7</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 12 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A simple neural network built from scratch written in C</title>
+      <link>/projects/cuda-nn/</link>
+      <pubDate>Fri, 01 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>/projects/cuda-nn/</guid>
+      <description>Components of a neural network To quickly construct the neural network structure, I will use the Pytorth to construct a simple neural network for demonstration purpose. I purposely left out batchnorm, residual blocks, lower-precision, and other optimizations to keep the code simple and easy to understand. The structure is simple. It contains two fully connected layers with a ReLu activation function in between. First I will implement this class in C language, and then turn it into CUCA enabaled code.</description>
+    </item>
+    <item>
+      <title>A neural network that carries the physical meaning of XAS spectrum</title>
+      <link>/projects/rank-aae/</link>
+      <pubDate>Fri, 16 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>/projects/rank-aae/</guid>
+      <description>&lt;p&gt;[to be added]&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>A molecular dynamics simulation on liquid-liquid interface</title>
+      <link>/projects/md-interface/</link>
+      <pubDate>Sat, 07 May 2022 00:00:00 +0000</pubDate>
+      <guid>/projects/md-interface/</guid>
+      <description>&lt;p&gt;[to be added]&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>XFTNR GUI software</title>
+      <link>/projects/xfntr/</link>
+      <pubDate>Sat, 10 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>/projects/xfntr/</guid>
+      <description>A Python software that integrate a GUI with underlying algorithms for XFNTR</description>
+    </item>
+    <item>
+      <title>Profanity in Early Irish</title>
+      <link>/projects/course2/</link>
+      <pubDate>Sat, 16 Jun 1990 00:00:00 +0000</pubDate>
+      <guid>/projects/course2/</guid>
+      <description>This undergraduate course discusses profanity in Early Irish.</description>
+    </item>
+  </channel>
+</rss>

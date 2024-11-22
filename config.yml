@@ -1,0 +1,117 @@
+# baseURL: "http://localhost:33491/hugo-website/" 
+title: Andrew Liang
+theme: PaperMod
+
+enableInlineShortcodes: true
+enableRobotsTXT: true
+
+taxonomies:
+    tag: tags
+
+menu:
+    main:
+        - name: Blog
+          url: blog/
+          weight: 5 
+        - name: Publications
+          url: papers/
+          weight: 2
+        - name: Projects
+          url: projects/
+          weight: 3
+        - name: CV
+          url: resume.pdf
+          weight: 1
+        - name: Search  
+          url: search/  
+          weight: 6
+
+
+params:
+    description: ""
+    author: Andrew Liang
+    # googleAnalyticsID: "G-XXXXX"
+    DateFormat: "2006-01-02"
+    defaultTheme: "light"
+    hideFooter: false
+    disableThemeToggle: true
+    ShowShareButtons: false
+    ShowReadingTime: false
+    disableSpecial1stPost: true
+    disableAnchoredHeadings: true
+    ShowPostNavLinks: false
+    ShowBreadCrumbs: false
+    ShowCodeCopyButtons: true
+    ShowAllPagesInArchive: false
+    MainSections: ["Projects","Publications","Blog"]
+    ShowToc: false
+    disableScrollToTop: true
+    TocOpen: true
+    ShowWordCount: false
+    UseHugoToc: true
+    comments: false
+    math: true
+    profileMode:
+          enabled: true
+          title: Zhu (Andrew) Liang, PhD.
+          subtitle: "My name is Andrew. My friends call me Zhu (as in Drew). I am a physicist by training, with a deep background in physics and material science. My academic journey took me through a PhD in Physics at University of Illinois at Chicago. I have a profound interest in combining artificial intelligence with physics, which has been a driving force in my career. In my professional life, I have been involved in various projects that blend my expertise in physics with cutting-edge AI applications. My passion for deep tech and climate tech investment has led me to work on innovative solutions that address some of the most pressing challenges of our time. I am particularly enthusiastic about leveraging AI to create sustainable and impactful technologies.Outside of work, I enjoy exploring new ideas and staying updated with the latest trends in technology and investment. I am always eager to connect with like-minded individuals who share a passion for innovation and sustainability."
+          imageUrl: "avatar.jpg"
+          imageWidth: 160
+          imageHeight: 160
+          buttons:
+            - name: CV
+              url: resume.pdf
+            - name: Publication
+              url: papers/
+            - name: Projects
+              url: projects/
+            - name: Blog
+              url: blog/
+            - name: Tags
+              url: tags/
+
+    socialIcons:
+        - name: Email
+          url: mailto:zleung9@gmail.com
+        - name: Google Scholar
+          url: https://scholar.google.com/citations?user=DUxCM1EAAAAJ&hl=en
+        - name: GitHub
+          url: https://github.com/zleung9
+        - name: Substack
+          url: 
+        - name: YouTube
+          url: 
+        - name: X
+          url: https://twitter.com/zleung
+        - name: LinkedIn
+          url: https://www.linkedin.com/in/liangzhu9
+        - name: Instagram
+          url: https://www.instagram.com/zleung9/
+
+    assets:
+        disableScrollBarStyle: true
+    cover:
+        hiddenInList: false
+        hiddenInSingle: true
+    label:
+      text: "Andrew Liang"
+      icon: 
+      iconHeight: 12
+
+markup:
+    goldmark:
+        renderer:
+            unsafe: true
+    highlight:
+        guessSyntax: true
+        style: autumn 
+    tableOfContents:
+        endLevel: 2
+        ordered: false
+        startLevel: 2
+paginate: 20
+outputs:
+     home:
+         - HTML
+         - RSS
+         - JSON

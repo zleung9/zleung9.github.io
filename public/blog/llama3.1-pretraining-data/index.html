@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Data Processing for Pre-training Llama 3.1 | Andrew Liang</title>
+<meta name="keywords" content="">
+<meta name="description" content="The performance of large language models (LLMs) is highly dependent on the quality of the data they are trained on. However, the data curation and cleaning process is underrated in today&rsquo;s discussions of AI.
+This article illustrates how Llama 3.1 developers collect and clean data to be used for pre-training Llama 3.1, which involved a multi-faceted approach to data curation, cleaning, and filtering. The main content is taken from the technical report of Llama 3.">
+<meta name="author" content="Andrew Liang">
+<link rel="canonical" href="/blog/llama3.1-pretraining-data/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e690afcd5c523330d5c8b4d746eb158361600a015e99518d4d246a6ccab0cc19.css" integrity="sha256-5pCvzVxSMzDVyLTXRusVg2FgCgFemVGNTSRqbMqwzBk=" rel="preload stylesheet" as="style">
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="/blog/llama3.1-pretraining-data/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Data Processing for Pre-training Llama 3.1" />
+<meta property="og:description" content="The performance of large language models (LLMs) is highly dependent on the quality of the data they are trained on. However, the data curation and cleaning process is underrated in today&rsquo;s discussions of AI.
+This article illustrates how Llama 3.1 developers collect and clean data to be used for pre-training Llama 3.1, which involved a multi-faceted approach to data curation, cleaning, and filtering. The main content is taken from the technical report of Llama 3." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/blog/llama3.1-pretraining-data/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2024-09-20T13:40:59-07:00" />
+<meta property="article:modified_time" content="2024-09-20T13:40:59-07:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Data Processing for Pre-training Llama 3.1"/>
+<meta name="twitter:description" content="The performance of large language models (LLMs) is highly dependent on the quality of the data they are trained on. However, the data curation and cleaning process is underrated in today&rsquo;s discussions of AI.
+This article illustrates how Llama 3.1 developers collect and clean data to be used for pre-training Llama 3.1, which involved a multi-faceted approach to data curation, cleaning, and filtering. The main content is taken from the technical report of Llama 3."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Books",
+      "item": "/blog/"
+    }
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Data Processing for Pre-training Llama 3.1",
+      "item": "/blog/llama3.1-pretraining-data/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Data Processing for Pre-training Llama 3.1",
+  "name": "Data Processing for Pre-training Llama 3.1",
+  "description": "The performance of large language models (LLMs) is highly dependent on the quality of the data they are trained on. However, the data curation and cleaning process is underrated in today\u0026rsquo;s discussions of AI.\nThis article illustrates how Llama 3.1 developers collect and clean data to be used for pre-training Llama 3.1, which involved a multi-faceted approach to data curation, cleaning, and filtering. The main content is taken from the technical report of Llama 3.",
+  "keywords": [
+    
+  ],
+  "articleBody": "The performance of large language models (LLMs) is highly dependent on the quality of the data they are trained on. However, the data curation and cleaning process is underrated in today’s discussions of AI.\nThis article illustrates how Llama 3.1 developers collect and clean data to be used for pre-training Llama 3.1, which involved a multi-faceted approach to data curation, cleaning, and filtering. The main content is taken from the technical report of Llama 3.1 that could be found here .\nContent and Domain Distribution Llama 3.1 was trained on a massive dataset of 15 trillion multilingual tokens, a substantial increase compared to the 1.8 trillion tokens used to train Llama 2.\nThe final data mix for Llama 3.1 consists of approximately 50% general knowledge, 25% mathematical and reasoning content, 17% code, and 8% multilingual data.\nThe developers designed filters to remove websites likely to contain adult content, unsafe content and personally identifiable information (PII), though no specifics were provided for the filters. Additionally, they sought to reduce the representation of art and entertainment domains, though, I assume, these data would consist of the majority of the internet tokens.\nData Cleaning and Filtering The cleaning and filtering process is crucial for ensuring that the training data is of high quality. This in involves a multi-step procedure including text extraction, de-duplication and heuristic filtering.\nText Extraction and Formatting The initial steps involved extracting text from HTML and potentially removing Markdown formatting elements. They built parsers optimized for boilerplate removal and content recall. They maintaine the image alt attribute text since mathematical content is often represented as pre-rendered images where the math is also provided in the alt attribute. Interestingly enough, they removed all Markdown markers from the web data because they found Markdown format was harmful to the performance of the model. It is a mystery.\nDe-duplication De-duplication is applied at URL, document and line levels. This process are not only applied across the entire dataset but also within each sub dataset that belongs to individual language.\nURL-level They first removed duplicate documents based on their URLs and keep the most recent pages corresponding to each URL.\nMiHash On the document level, they employed MinHash, a technique for estimating the similarity between datasets, to further remove duplicates. MinHash is a powerful technique for efficiently identifying near-duplicate documents from large dataset. It works on statistical properties of the text rather than semantic meaning by creating a compact fingerprint representation of each document. The technique has a lot of benefits. For example, it detects documents that are not exactly identical but have high textual similarity. Users can also tune the similarity threshold in order to balance precision and recall. Though specifics of this technique is not provided in the technical report, a detailed tutorial on MinHash can be found here .\nAggressive line removal On line level, they removed lines that appeared 6 times in each bucket of 30M documents. This way they are able to remove boilerplate content from the website such as navigation menus, cookie warnings, etc. Note that this method has a high false positive rate that it removes some high-quality data also.\nHeuristics-based Filtering Various heuristics were employed to identify and filter out low-quality data:\nN-gram Convergence Ratio While the exact details of its application are not elaborated upon, this metric was likely used to assess the linguistic diversity of the dataset and potentially filter out repetitive or low-quality segments.\nDirty Word Filtering Removing text containing offensive or inappropriate language. It is quite straightforward.\nToken Distribution KL Divergence Utilizing the Kullback-Leibler divergence to measure the difference between the token distribution of individual documents and the overall corpus distribution. Documents with excessively divergent token distributions, suggesting outlier or low-quality content, were filtered out.\nModel-based Filtering Llama 2, a predecessor to Llama 3.1, was utilized to develop a quality classification model. This model was trained to identify high-quality text based on human-defined criteria, further enhancing the quality of the training data.\nCode and Reasoning Data Special attention was given to the processing of code and reasoning data, which was deemed beneficial for improving the model’s reasoning abilities:\nHTML Extraction A tailored HTML extraction method was developed specifically for code data, as the token distribution of code and math is substantially different from that of natural language. Specifically, they trained code classifiers and reasoning classifiers. Both classifiers are DistilRoberta model, which is a distilled version of RoBERTa-base model. It is intended to be fine-tuned on tasks that use the whole sentence to make decisions such as classification problems.\nAnnealing To further enhance performance on reasoning tasks, an annealing technique was employed. The data used for annealing is a set of 40M tokens of very high quality (probably code and mathematical?) upsampled from data sources. They increased the learning rate and linearly annealed the learning rate to 0, maintaining a context length of 128K tokens. Finally, they computed the average of model checkpoints during annealing to produce the final pre-trained model.\n",
+  "wordCount" : "828",
+  "inLanguage": "en",
+  "datePublished": "2024-09-20T13:40:59-07:00",
+  "dateModified": "2024-09-20T13:40:59-07:00",
+  "author":{
+    "@type": "Person",
+    "name": "Andrew Liang"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/blog/llama3.1-pretraining-data/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Andrew Liang",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="/" accesskey="h" title="Andrew Liang">Andrew Liang</a>
+            <div class="logo-switches">
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="/resume.pdf" title="CV">
+                    <span>CV</span>
+                </a>
+            </li>
+            <li>
+                <a href="/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="/blog/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Data Processing for Pre-training Llama 3.1
+    </h1>
+    <div class="post-meta"><span title='2024-09-20 13:40:59 -0700 PDT'>2024-09-20</span>&nbsp;&middot;&nbsp;Andrew Liang
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#content-and-domain-distribution">Content and Domain Distribution</a></li>
+    <li><a href="#data-cleaning-and-filtering">Data Cleaning and Filtering</a></li>
+    <li><a href="#code-and-reasoning-data">Code and Reasoning Data</a></li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p><em>The performance of large language models (LLMs) is highly dependent on the quality of the data they are trained on. However, the data curation and cleaning process is underrated in today&rsquo;s discussions of AI.</em></p>
+<hr>
+<p>This article illustrates how Llama 3.1 developers collect and clean data to be used for pre-training Llama 3.1, which involved a multi-faceted approach to data curation, cleaning, and filtering. The main content is taken from the technical report of Llama 3.1 that could be found <a href="https://ai.meta.com/research/publications/the-llama-3-herd-of-models/" target="_blank">here</a>
+.</p>
+<h2 id="content-and-domain-distribution">Content and Domain Distribution</h2>
+<p>Llama 3.1 was trained on a massive dataset of 15 trillion multilingual tokens, a substantial increase compared to the 1.8 trillion tokens used to train Llama 2.</p>
+<p>The final data mix for Llama 3.1 consists of approximately 50% general knowledge, 25% mathematical and reasoning content, 17% code, and 8% multilingual data.</p>
+<p>The developers designed filters to remove websites likely to contain adult content, unsafe content and personally identifiable information (PII), though no specifics were provided for the filters. Additionally, they sought to reduce the representation of art and entertainment domains, though, I assume, these data would consist of the majority of the internet tokens.</p>
+<h2 id="data-cleaning-and-filtering">Data Cleaning and Filtering</h2>
+<p>The cleaning and filtering process is crucial for ensuring that the training data is of high quality. This in involves a multi-step procedure including text extraction, de-duplication and heuristic filtering.</p>
+<h3 id="text-extraction-and-formatting">Text Extraction and Formatting</h3>
+<p>The initial steps involved extracting text from HTML and potentially removing Markdown formatting elements. They built parsers optimized for boilerplate removal and content recall. They maintaine the image alt attribute text since mathematical content is often represented as pre-rendered images where the math is also provided in the alt attribute. Interestingly enough, they removed all Markdown markers from the web data because they found Markdown format was harmful to the performance of the model. It is a mystery.</p>
+<h3 id="de-duplication">De-duplication</h3>
+<p>De-duplication is applied at URL, document and line levels. This process are not only applied across the entire dataset but also within each sub dataset that belongs to individual language.</p>
+<h4 id="url-level">URL-level</h4>
+<p>They first removed duplicate documents based on their URLs and keep the most recent pages corresponding to each URL.</p>
+<h4 id="mihash">MiHash</h4>
+<p>On the document level, they employed MinHash, a technique for estimating the similarity between datasets, to further remove duplicates. MinHash is a powerful technique for efficiently identifying near-duplicate documents from large dataset. It works on statistical properties of the text rather than semantic meaning by creating a compact fingerprint representation of each document. The technique has a lot of benefits. For example, it detects documents that are not exactly identical but have high textual similarity. Users can also tune the similarity threshold in order to balance precision and recall. Though specifics of this technique is not provided in the technical report, a detailed tutorial on MinHash can be found <a href="https://mccormickml.com/2015/06/12/minhash-tutorial-with-python-code/" target="_blank">here</a>
+.</p>
+<h4 id="aggressive-line-removal">Aggressive line removal</h4>
+<p>On line level, they removed lines that appeared 6 times in each bucket of 30M documents. This way they are able to remove boilerplate content from the website such as navigation menus, cookie warnings, etc. Note that this method has a high false positive rate that it removes some high-quality data also.</p>
+<h3 id="heuristics-based-filtering">Heuristics-based Filtering</h3>
+<p>Various heuristics were employed to identify and filter out low-quality data:</p>
+<h4 id="n-gram-convergence-ratio">N-gram Convergence Ratio</h4>
+<p>While the exact details of its application are not elaborated upon, this metric was likely used to assess the linguistic diversity of the dataset and potentially filter out repetitive or low-quality segments.</p>
+<h4 id="dirty-word-filtering">Dirty Word Filtering</h4>
+<p>Removing text containing offensive or inappropriate language. It is quite straightforward.</p>
+<h4 id="token-distribution-kl-divergence">Token Distribution KL Divergence</h4>
+<p>Utilizing the Kullback-Leibler divergence to measure the difference between the token distribution of individual documents and the overall corpus distribution. Documents with excessively divergent token distributions, suggesting outlier or low-quality content, were filtered out.</p>
+<h4 id="model-based-filtering">Model-based Filtering</h4>
+<p>Llama 2, a predecessor to Llama 3.1, was utilized to develop a quality classification model. This model was trained to identify high-quality text based on human-defined criteria, further enhancing the quality of the training data.</p>
+<h2 id="code-and-reasoning-data">Code and Reasoning Data</h2>
+<p>Special attention was given to the processing of code and reasoning data, which was deemed beneficial for improving the model&rsquo;s reasoning abilities:</p>
+<h3 id="html-extraction">HTML Extraction</h3>
+<p>A tailored HTML extraction method was developed specifically for code data, as the token distribution of code and math is substantially different from that of natural language. Specifically, they trained code classifiers and reasoning classifiers. Both classifiers are DistilRoberta model, which is a distilled version of RoBERTa-base model. It is intended to be fine-tuned on tasks that use the whole sentence to make decisions such as classification problems.</p>
+<h3 id="annealing">Annealing</h3>
+<p>To further enhance performance on reasoning tasks, an annealing technique was employed. The data used for annealing is a set of 40M tokens of very high quality (probably code and mathematical?) upsampled from data sources. They increased the learning rate and linearly annealed the learning rate to 0, maintaining a context length of 128K tokens. Finally, they computed the average of model checkpoints during annealing to produce the final pre-trained model.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="/">Andrew Liang</a></span> ·     
+    <span>
+    Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

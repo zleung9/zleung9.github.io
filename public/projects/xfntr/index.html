@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>XFTNR GUI software | Andrew Liang</title>
+<meta name="keywords" content="">
+<meta name="description" content="A Python software that integrate a GUI with underlying algorithms for XFNTR">
+<meta name="author" content="Andrew Liang">
+<link rel="canonical" href="/projects/xfntr/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e690afcd5c523330d5c8b4d746eb158361600a015e99518d4d246a6ccab0cc19.css" integrity="sha256-5pCvzVxSMzDVyLTXRusVg2FgCgFemVGNTSRqbMqwzBk=" rel="preload stylesheet" as="style">
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="/projects/xfntr/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="XFTNR GUI software" />
+<meta property="og:description" content="A Python software that integrate a GUI with underlying algorithms for XFNTR" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/projects/xfntr/" />
+<meta property="og:image" content="/diagram.png" /><meta property="article:section" content="projects" />
+<meta property="article:published_time" content="2019-08-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-08-10T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="/diagram.png" />
+<meta name="twitter:title" content="XFTNR GUI software"/>
+<meta name="twitter:description" content="A Python software that integrate a GUI with underlying algorithms for XFNTR"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Courses",
+      "item": "/projects/"
+    }
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "XFTNR GUI software",
+      "item": "/projects/xfntr/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "XFTNR GUI software",
+  "name": "XFTNR GUI software",
+  "description": "A Python software that integrate a GUI with underlying algorithms for XFNTR",
+  "keywords": [
+    
+  ],
+  "articleBody": " Download code Software apperience The left most column hosts data and fit files as described previously (see page 33); the middle column is the fitting panel which provides the values of all the parameters that characterize a fluorescence scan. The parameters fall into two categories. System parameters preset the sample and are known and fixed in the fitting. They include the energy and profile of the X-ray beam, its interaction with two bulk phases in terms of electron density, absorption coefficient, and the detection range of the fluorescence detector. Fitting parameters include all the unknown parameters to be optimized through the least-square fitting.\nX-ray fluorescence Near Total Reflection (XFNTR) Technique XFNTR is used to measure the distribution of Eu throughout our samples by measuring the Eu interfacial number density (per nm²) and its concentration in each of the neighboring bulk phases. First introduced by Bloch and Yun, the elemental selectivity and surface sensitivity of XFNTR has been used to detect the existence and coverage of metal ions at liquid-vapor interfaces. The application of XFNTR has been limited to studying interfacial ion densities when the aqueous bulk concentration of ions is small enough to produce negligible fluorescence and the organic bulk concentration of ions is zero. However, during the process of solvent back-extraction, ions may have a substantial concentration in both bulk phases, as well as at the interface. Here, we discuss modifications to the measurement and analysis of XFNTR that allows us to measure the concentration of ions in both bulk phases, as well as the interfacial density of ions.\n$$ \\begin{aligned}[t] I(Q_z) = C \u0026 \\left[n_{org}\\iint I(x,z,Q_z),dx,dz \\right. \\ \u0026 + n_{aq}\\iint I(x,z,Q_z),dx,dz \\ \u0026 + \\left. \\sigma_{int}\\int I(x, 0, Q_z),dx\\right]+I_{bg} \\end{aligned} $$\nThe final result is something like the one below:\n$$ \\frac{I(\\alpha)}{I_0} = C \\iint_{f/2}^{-f/2} w(x’)\\frac{I_{flu}(x’)}{I_0},dx’ + I_{bg} $$\nwhere $$ w(x’) = \\begin{cases} \\frac{1}{\\sqrt{2\\pi}\\sigma_{D}/\\alpha}\\exp{-\\frac{x’^2}{2(\\sigma_{D}/\\alpha)^2}}, \u0026 -\\frac{3\\sigma_{D}}{\\alpha} \u003c x’ \u003c \\frac{3\\sigma_{D}}{\\alpha} \\ 0, \u0026 \\text{otherwise} \\end{cases} $$\nand $I_{flu}(x’)$ is an even more complicated term which won’t be shown here. For detailed derivation of the equation please refer to my thesis.\n",
+  "wordCount" : "344",
+  "inLanguage": "en",
+  "image":"/diagram.png","datePublished": "2019-08-10T00:00:00Z",
+  "dateModified": "2019-08-10T00:00:00Z",
+  "author":[{
+    "@type": "Person",
+    "name": "Andrew Liang"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/projects/xfntr/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Andrew Liang",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="/" accesskey="h" title="Andrew Liang">Andrew Liang</a>
+            <div class="logo-switches">
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="/resume.pdf" title="CV">
+                    <span>CV</span>
+                </a>
+            </li>
+            <li>
+                <a href="/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="/blog/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      XFTNR GUI software
+    </h1>
+    <div class="post-meta"><span title='2019-08-10 00:00:00 +0000 UTC'>2019-08-10</span>&nbsp;&middot;&nbsp;Andrew Liang
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#download">Download</a></li>
+    <li><a href="#software-apperience">Software apperience</a></li>
+    <li><a href="#x-ray-fluorescence-near-total-reflection-xfntr-technique">X-ray fluorescence Near Total Reflection (XFNTR) Technique</a></li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><hr>
+<h2 id="download">Download</h2>
+<ul>
+<li><a href="https://github.com/zleung9/XFNTR" target="_blank">code</a>
+</li>
+</ul>
+<hr>
+<h2 id="software-apperience">Software apperience</h2>
+<p>The left most column hosts data and fit files as described previously (see page 33); the middle column is the fitting panel which provides the values of all the parameters that characterize a fluorescence scan. The parameters fall into two categories. System parameters preset the sample and are known and fixed in the fitting. They include the energy and profile of the X-ray beam, its interaction with two bulk phases in terms of electron density, absorption coefficient, and the detection range of the fluorescence detector. Fitting parameters include all the unknown parameters to be optimized through the least-square fitting.</p>
+<p><img loading="lazy" src="./sfotware-xfntr-fitting.png" alt="fitting"  />
+</p>
+<h2 id="x-ray-fluorescence-near-total-reflection-xfntr-technique">X-ray fluorescence Near Total Reflection (XFNTR) Technique</h2>
+<p>XFNTR is used to measure the distribution of Eu throughout our samples by measuring the Eu interfacial number density (per nm²) and its concentration in each of the neighboring bulk phases. First introduced by Bloch and Yun, the elemental selectivity and surface sensitivity of XFNTR has been used to detect the existence and coverage of metal ions at liquid-vapor interfaces. The application of XFNTR has been limited to studying interfacial ion densities when the aqueous bulk concentration of ions is small enough to produce negligible fluorescence and the organic bulk concentration of ions is zero. However, during the process of solvent back-extraction, ions may have a substantial concentration in both bulk phases, as well as at the interface. Here, we discuss modifications to the measurement and analysis of XFNTR that allows us to measure the concentration of ions in both bulk phases, as well as the interfacial density of ions.</p>
+<p><img loading="lazy" src="./diagram.png" alt="diagram"  />
+</p>
+<p>$$
+\begin{aligned}[t]
+I(Q_z) = C &amp; \left[n_{org}\iint I(x,z,Q_z),dx,dz \right. \
+&amp; + n_{aq}\iint I(x,z,Q_z),dx,dz \
+&amp; + \left. \sigma_{int}\int I(x, 0, Q_z),dx\right]+I_{bg}
+\end{aligned}
+$$</p>
+<p>The final result is something like the one below:</p>
+<p>$$
+\frac{I(\alpha)}{I_0} = C \iint_{f/2}^{-f/2} w(x&rsquo;)\frac{I_{flu}(x&rsquo;)}{I_0},dx&rsquo; + I_{bg}
+$$</p>
+<p>where
+$$
+w(x&rsquo;) = \begin{cases}
+\frac{1}{\sqrt{2\pi}\sigma_{D}/\alpha}\exp{-\frac{x&rsquo;^2}{2(\sigma_{D}/\alpha)^2}}, &amp;  -\frac{3\sigma_{D}}{\alpha} &lt; x&rsquo; &lt; \frac{3\sigma_{D}}{\alpha} \
+0, &amp; \text{otherwise}
+\end{cases}
+$$</p>
+<p>and $I_{flu}(x&rsquo;)$ is an even more complicated term which won&rsquo;t be shown here. For detailed derivation of the equation please refer to my thesis.</p>
+<p><img loading="lazy" src="./interface-diagram.png" alt="diagram-interface"  />
+
+<img loading="lazy" src="featured.png" alt="diagram-zoom"  />
+</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="/">Andrew Liang</a></span> ·     
+    <span>
+    Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

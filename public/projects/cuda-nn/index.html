@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>A simple neural network built from scratch written in C | Andrew Liang</title>
+<meta name="keywords" content="">
+<meta name="description" content="Components of a neural network To quickly construct the neural network structure, I will use the Pytorth to construct a simple neural network for demonstration purpose. I purposely left out batchnorm, residual blocks, lower-precision, and other optimizations to keep the code simple and easy to understand. The structure is simple. It contains two fully connected layers with a ReLu activation function in between. First I will implement this class in C language, and then turn it into CUCA enabaled code.">
+<meta name="author" content="Andrew Liang">
+<link rel="canonical" href="/projects/cuda-nn/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e690afcd5c523330d5c8b4d746eb158361600a015e99518d4d246a6ccab0cc19.css" integrity="sha256-5pCvzVxSMzDVyLTXRusVg2FgCgFemVGNTSRqbMqwzBk=" rel="preload stylesheet" as="style">
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="/projects/cuda-nn/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="A simple neural network built from scratch written in C" />
+<meta property="og:description" content="Components of a neural network To quickly construct the neural network structure, I will use the Pytorth to construct a simple neural network for demonstration purpose. I purposely left out batchnorm, residual blocks, lower-precision, and other optimizations to keep the code simple and easy to understand. The structure is simple. It contains two fully connected layers with a ReLu activation function in between. First I will implement this class in C language, and then turn it into CUCA enabaled code." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/projects/cuda-nn/" />
+<meta property="og:image" content="/featured.png" /><meta property="article:section" content="projects" />
+<meta property="article:published_time" content="2024-11-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-11-12T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="/featured.png" />
+<meta name="twitter:title" content="A simple neural network built from scratch written in C"/>
+<meta name="twitter:description" content="Components of a neural network To quickly construct the neural network structure, I will use the Pytorth to construct a simple neural network for demonstration purpose. I purposely left out batchnorm, residual blocks, lower-precision, and other optimizations to keep the code simple and easy to understand. The structure is simple. It contains two fully connected layers with a ReLu activation function in between. First I will implement this class in C language, and then turn it into CUCA enabaled code."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Courses",
+      "item": "/projects/"
+    }
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "A simple neural network built from scratch written in C",
+      "item": "/projects/cuda-nn/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "A simple neural network built from scratch written in C",
+  "name": "A simple neural network built from scratch written in C",
+  "description": "Components of a neural network To quickly construct the neural network structure, I will use the Pytorth to construct a simple neural network for demonstration purpose. I purposely left out batchnorm, residual blocks, lower-precision, and other optimizations to keep the code simple and easy to understand. The structure is simple. It contains two fully connected layers with a ReLu activation function in between. First I will implement this class in C language, and then turn it into CUCA enabaled code.",
+  "keywords": [
+    
+  ],
+  "articleBody": "Components of a neural network To quickly construct the neural network structure, I will use the Pytorth to construct a simple neural network for demonstration purpose. I purposely left out batchnorm, residual blocks, lower-precision, and other optimizations to keep the code simple and easy to understand. The structure is simple. It contains two fully connected layers with a ReLu activation function in between. First I will implement this class in C language, and then turn it into CUCA enabaled code.\nclass MLP(nn.Module): def __init__(self, in_features, hidden_features, num_classes): super(MLP, self).__init__() self.fc1 = nn.Linear(in_features, hidden_features) self.relu = nn.ReLU() self.fc2 = nn.Linear(hidden_features, num_classes) def forward(self, x): x = x.reshape(batch_size, 28 * 28) x = self.fc1(x) x = self.relu(x) x = self.fc2(x) return x model = MLP(in_features=784, hidden_features=256, num_classes=10).to(\"cuda\") # model = torch.compile(model) optimizer = optim.SGD(model.parameters(), lr=learning_rate) In advanced frameworks such as Pytorch, we often see the use of optimizer or loss.backward(). What do they do? Well, to find out what is under the hood, we need to dig into what a basic training loop does. In a nutshell, a typical training cycle consists of forward calculation, loss calculation, back propagation and updating weights.\nThis procedure will be repeated again and again through epochs, and for each epoch through batches. The pseudo Python code below describes how it works.\nfor epoch in range(epochs): for X, y in train_dataloader: pred = model.forward(X) # forward calculation loss = loss_function(pred, y) # calculate loss gradient = y_pred - y # calcualt gradient model.backward(gradient) # backward propogation model.update_gradient() # update the gradient X_val, y_val = next(iter(val_dataloader)) pred_val = model.forward(X_val) loss = loss_function(pred_val, y_val) X_test y_test = test_dataloader pred_test = model(X_test) loss = loss_function(pred_test, y_test) forward calculation. This is the basic execution of the model. It is essentially matrix mulplication in this case. So we need to write our function to perform matrix mutiplication. loss calculation. In this case we will use write a cross-entropy loss function. back propagation. It further breaks down to two parts: gradient calculation and gradient update. update weights. Components of a neural network from scratch First of all, let’s define the structure of the neural network. We will take the simp\ntypedef struct { float *weights1; float *weights2; float *bias1; float *bias2; float *grad_weights1; float *grad_weights2; float *grad_bias1; float *grad_bias2; } MLP; Let’s write down the building block of the forward function. The fully connected layer is essentially matrix multiplication with weights plus bias term $ \\textbf{X}\\times\\textbf{W}+\\textbf{B}$. Since in the backpropagation the weight term and bias term are handled differently, we will implement them seperately.\nIn the code below we represent 2D matrix using a flattened 1D array. The implimentation only works in seeries, which significantly slows down the computation. This can be optimized using CUDA.\n// A has shape m x n, B has shape n x k and C has shape m x k void matmul_a_b(float *A, float *B, float *C, int m, int n, int k) { for (int i = 0; i \u003c m; i++) { for (int j = 0; j \u003c k; j++) { C[i * k + j] = 0.0f; for (int l = 0; l \u003c n; l++) { C[i * k + j] += A[i * n + l] * B[l * k + j]; } } } } // X has size (batch_size, n), bias is a 1D array of size n. void bias_forward(float *X, float *bias, int batch_size, int n) { for (int b=0; b; b++) { for (int i=0; i",
+  "wordCount" : "848",
+  "inLanguage": "en",
+  "image":"/featured.png","datePublished": "2024-11-01T00:00:00Z",
+  "dateModified": "2024-11-12T00:00:00Z",
+  "author":[{
+    "@type": "Person",
+    "name": "Andrew Liang"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/projects/cuda-nn/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Andrew Liang",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="/" accesskey="h" title="Andrew Liang">Andrew Liang</a>
+            <div class="logo-switches">
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="/resume.pdf" title="CV">
+                    <span>CV</span>
+                </a>
+            </li>
+            <li>
+                <a href="/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="/blog/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      A simple neural network built from scratch written in C
+    </h1>
+    <div class="post-meta"><span title='2024-11-01 00:00:00 +0000 UTC'>2024-11-01</span>&nbsp;&middot;&nbsp;Andrew Liang
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#components-of-a-neural-network">Components of a neural network</a></li>
+    <li><a href="#components-of-a-neural-network-from-scratch">Components of a neural network from scratch</a></li>
+    <li><a href="#calculate-loss-function">Calculate loss function</a></li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="components-of-a-neural-network">Components of a neural network<a hidden class="anchor" aria-hidden="true" href="#components-of-a-neural-network">#</a></h2>
+<p>To quickly construct the neural network structure, I will use the Pytorth to construct a simple neural network for demonstration purpose.  I purposely left out batchnorm, residual blocks, lower-precision, and other optimizations to keep the code simple and easy to understand.
+The structure is simple. It contains two fully connected layers with a ReLu activation function in between. First I will implement this class in C language, and then turn it into CUCA enabaled code.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#00a">class</span> <span style="color:#0a0;text-decoration:underline">MLP</span>(nn.Module):
+</span></span><span style="display:flex;"><span>    <span style="color:#00a">def</span> __init__(self, in_features, hidden_features, num_classes):
+</span></span><span style="display:flex;"><span>        <span style="color:#0aa">super</span>(MLP, self).__init__()
+</span></span><span style="display:flex;"><span>        self.fc1 = nn.Linear(in_features, hidden_features)
+</span></span><span style="display:flex;"><span>        self.relu = nn.ReLU()
+</span></span><span style="display:flex;"><span>        self.fc2 = nn.Linear(hidden_features, num_classes)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a">def</span> <span style="color:#0a0">forward</span>(self, x):
+</span></span><span style="display:flex;"><span>        x = x.reshape(batch_size, <span style="color:#099">28</span> * <span style="color:#099">28</span>)
+</span></span><span style="display:flex;"><span>        x = self.fc1(x)
+</span></span><span style="display:flex;"><span>        x = self.relu(x)
+</span></span><span style="display:flex;"><span>        x = self.fc2(x)
+</span></span><span style="display:flex;"><span>        <span style="color:#00a">return</span> x
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model = MLP(in_features=<span style="color:#099">784</span>, hidden_features=<span style="color:#099">256</span>, num_classes=<span style="color:#099">10</span>).to(<span style="color:#a50">&#34;cuda&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"># model = torch.compile(model)</span>
+</span></span><span style="display:flex;"><span>optimizer = optim.SGD(model.parameters(), lr=learning_rate)
+</span></span></code></pre></div><p>In advanced frameworks such as Pytorch, we often see the use of <code>optimizer</code> or <code>loss.backward()</code>. What do they do? Well, to find out what is under the hood, we need to dig into what a basic training loop does. In a nutshell, a typical training cycle consists of forward calculation, loss calculation, back propagation and updating weights.</p>
+<p>This procedure will be repeated again and again through epochs, and for each epoch through batches. The pseudo Python code below describes how it works.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#00a">for</span> epoch <span style="color:#00a">in</span> <span style="color:#0aa">range</span>(epochs):
+</span></span><span style="display:flex;"><span>    <span style="color:#00a">for</span> X, y <span style="color:#00a">in</span> train_dataloader:
+</span></span><span style="display:flex;"><span>        pred = model.forward(X) <span style="color:#aaa;font-style:italic"># forward calculation</span>
+</span></span><span style="display:flex;"><span>        loss = loss_function(pred, y) <span style="color:#aaa;font-style:italic"># calculate loss</span>
+</span></span><span style="display:flex;"><span>        gradient = y_pred - y <span style="color:#aaa;font-style:italic"># calcualt gradient</span>
+</span></span><span style="display:flex;"><span>        model.backward(gradient) <span style="color:#aaa;font-style:italic"># backward propogation</span>
+</span></span><span style="display:flex;"><span>        model.update_gradient() <span style="color:#aaa;font-style:italic"># update the gradient</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    X_val, y_val = <span style="color:#0aa">next</span>(<span style="color:#0aa">iter</span>(val_dataloader))
+</span></span><span style="display:flex;"><span>    pred_val = model.forward(X_val)
+</span></span><span style="display:flex;"><span>    loss = loss_function(pred_val, y_val)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X_test y_test = test_dataloader
+</span></span><span style="display:flex;"><span>pred_test = model(X_test)
+</span></span><span style="display:flex;"><span>loss = loss_function(pred_test, y_test)
+</span></span></code></pre></div><ul>
+<li>forward calculation. This is the basic execution of  the model. It is essentially matrix mulplication in this case. So we need to write our function to perform matrix mutiplication.</li>
+<li>loss calculation. In this case we will use write a cross-entropy loss function.</li>
+<li>back propagation. It further breaks down to two parts: gradient calculation and gradient update.</li>
+<li>update weights.</li>
+</ul>
+<h2 id="components-of-a-neural-network-from-scratch">Components of a neural network from scratch<a hidden class="anchor" aria-hidden="true" href="#components-of-a-neural-network-from-scratch">#</a></h2>
+<p>First of all, let&rsquo;s define the structure of the neural network. We will take the simp</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#00a">typedef</span> <span style="color:#00a">struct</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#0aa">float</span> *weights1;
+</span></span><span style="display:flex;"><span>    <span style="color:#0aa">float</span> *weights2;
+</span></span><span style="display:flex;"><span>    <span style="color:#0aa">float</span> *bias1;
+</span></span><span style="display:flex;"><span>    <span style="color:#0aa">float</span> *bias2;
+</span></span><span style="display:flex;"><span>    <span style="color:#0aa">float</span> *grad_weights1;
+</span></span><span style="display:flex;"><span>    <span style="color:#0aa">float</span> *grad_weights2;
+</span></span><span style="display:flex;"><span>    <span style="color:#0aa">float</span> *grad_bias1;
+</span></span><span style="display:flex;"><span>    <span style="color:#0aa">float</span> *grad_bias2;
+</span></span><span style="display:flex;"><span>} MLP;
+</span></span></code></pre></div><p>Let&rsquo;s write down the building block of the forward function. The fully connected layer is essentially matrix multiplication with weights plus bias term $ \textbf{X}\times\textbf{W}+\textbf{B}$. Since in the backpropagation the weight term and bias term are handled differently, we will implement them seperately.</p>
+<p>In the code below we represent 2D matrix using a flattened 1D array. The implimentation only works in seeries, which significantly slows down the computation. This can be optimized using CUDA.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// A has shape m x n, B has shape n x k and C has shape m x k
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#0aa">void</span> <span style="color:#0a0">matmul_a_b</span>(<span style="color:#0aa">float</span> *A, <span style="color:#0aa">float</span> *B, <span style="color:#0aa">float</span> *C, <span style="color:#0aa">int</span> m, <span style="color:#0aa">int</span> n, <span style="color:#0aa">int</span> k) {
+</span></span><span style="display:flex;"><span>    <span style="color:#00a">for</span> (<span style="color:#0aa">int</span> i = <span style="color:#099">0</span>; i &lt; m; i++) {
+</span></span><span style="display:flex;"><span>        <span style="color:#00a">for</span> (<span style="color:#0aa">int</span> j = <span style="color:#099">0</span>; j &lt; k; j++) {
+</span></span><span style="display:flex;"><span>            C[i * k + j] = <span style="color:#099">0.0f</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#00a">for</span> (<span style="color:#0aa">int</span> l = <span style="color:#099">0</span>; l &lt; n; l++) {
+</span></span><span style="display:flex;"><span>                C[i * k + j] += A[i * n + l] * B[l * k + j];
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// X has size (batch_size, n), bias is a 1D array of size n.
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#0aa">void</span> <span style="color:#0a0">bias_forward</span>(<span style="color:#0aa">float</span> *X, <span style="color:#0aa">float</span> *bias, <span style="color:#0aa">int</span> batch_size, <span style="color:#0aa">int</span> n) {
+</span></span><span style="display:flex;"><span>    <span style="color:#00a">for</span> (<span style="color:#0aa">int</span> b=<span style="color:#099">0</span>; b&lt;batch_size&gt;; b++) {
+</span></span><span style="display:flex;"><span>        <span style="color:#00a">for</span> (<span style="color:#0aa">int</span> i=<span style="color:#099">0</span>; i&lt;n; i++) {
+</span></span><span style="display:flex;"><span>            x[b*n + i] += b[i];
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>We also need to define $ \textbf{A}\times\textbf{B}^T$, and $\textbf{A}^T\times\textbf{B}$. It is just a matter of changing the iteration above.</p>
+<p>Here comes the <code>ReLu</code> layer, along with the last layer <code>softmax</code> function.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// input x has size `n`. Assign zero if the value is negative.
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#0aa">void</span> <span style="color:#0a0">relu</span>(<span style="color:#0aa">float</span> *x, <span style="color:#0aa">int</span> n) {
+</span></span><span style="display:flex;"><span>    <span style="color:#00a">for</span> (<span style="color:#0aa">int</span> i=<span style="color:#099">0</span>; i&lt;n; i++) {
+</span></span><span style="display:flex;"><span>        x[i] = <span style="color:#0a0">fmaxf</span>(<span style="color:#099">0.0f</span>, x[i]);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">// input x has size n. 
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span><span style="color:#0aa">void</span> <span style="color:#0a0">softmax</span>(<span style="color:#0aa">float</span> *x, <span style="color:#0aa">int</span> batch_size, <span style="color:#0aa">int</span> n) {
+</span></span><span style="display:flex;"><span>    <span style="color:#00a">for</span> (<span style="color:#0aa">int</span> b = <span style="color:#099">0</span>; b &lt; batch_size; b++) {
+</span></span><span style="display:flex;"><span>        <span style="color:#0aa">float</span> sum = <span style="color:#099">0.0f</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#00a">for</span> (<span style="color:#0aa">int</span> i = <span style="color:#099">0</span>; i &lt; size; i++) {
+</span></span><span style="display:flex;"><span>            x[b * size + i] = <span style="color:#0a0">expf</span>(x[b * size + i]);
+</span></span><span style="display:flex;"><span>            sum += x[b * size + i];
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#00a">for</span> (<span style="color:#0aa">int</span> i = <span style="color:#099">0</span>; i &lt; size; i++) {
+</span></span><span style="display:flex;"><span>            x[b * size + i] = <span style="color:#0a0">fmaxf</span>(x[b * size + i] / sum, <span style="color:#099">1e-7</span>f);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>We now construct the forward function of the model.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#0aa">void</span> <span style="color:#0a0">forward</span>(MLP *nn, <span style="color:#0aa">float</span> *X, <span style="color:#0aa">float</span> *hidden, <span style="color:#0aa">float</span> *output, <span style="color:#0aa">int</span> batch_size) {
+</span></span><span style="display:flex;"><span>   <span style="color:#aaa;font-style:italic">// Input to Hidden: X @ W1
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span>   <span style="color:#0a0">matmul_a_b</span>(X, nn-&gt;weight1, hidden, batch_size, INPUT_SIZE, HIDDEN_SIZE);
+</span></span><span style="display:flex;"><span>   <span style="color:#aaa;font-style:italic">// Add bias1
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span>   <span style="color:#0a0">bias_forward</span>(hidden, nn-&gt;bias1, batch_size, HIDDEN_SIZE);
+</span></span><span style="display:flex;"><span>   <span style="color:#aaa;font-style:italic">// Apply ReLU
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span>   <span style="color:#0a0">relu_forward</span>(hidden, batch_size * HIDDEN_SIZE);
+</span></span><span style="display:flex;"><span>   <span style="color:#aaa;font-style:italic">// Hidden to Output (hidden @ W2)
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span>   <span style="color:#0a0">matmul_a_b</span>(hidden, nn-&gt;weight2, output, batch_size, HIDDEN_SIZE, OUTPUT_SIZE);
+</span></span><span style="display:flex;"><span>   <span style="color:#aaa;font-style:italic">// Add bias2
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span>   <span style="color:#0a0">bias_forward</span>(output, nn-&gt;bias2, batch_size, OUTPUT_SIZE);
+</span></span><span style="display:flex;"><span>   <span style="color:#aaa;font-style:italic">// Apply softmac
+</span></span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic"></span>   <span style="color:#0a0">softmax</span>(output, batch_size, OUTPUT_SIZE);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="calculate-loss-function">Calculate loss function<a hidden class="anchor" aria-hidden="true" href="#calculate-loss-function">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#0aa">float</span> <span style="color:#0a0">cross_entropy_loss</span>(<span style="color:#0aa">float</span> *output, <span style="color:#0aa">int</span> *labels, <span style="color:#0aa">int</span> batch_size) {
+</span></span><span style="display:flex;"><span>   <span style="color:#0aa">float</span> total_loss = <span style="color:#099">0.0f</span>;
+</span></span><span style="display:flex;"><span>   <span style="color:#00a">for</span> (<span style="color:#0aa">int</span> b = <span style="color:#099">0</span>; b &lt; batch_size; b++) {
+</span></span><span style="display:flex;"><span>       total_loss -= <span style="color:#0a0">logf</span>(<span style="color:#0a0">fmaxf</span>(output[b * OUTPUT_SIZE + labels[b]], <span style="color:#099">1e-7</span>f));
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>   <span style="color:#00a">return</span> total_loss / batch_size;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="/">Andrew Liang</a></span> ·     
+    <span>
+    Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>
