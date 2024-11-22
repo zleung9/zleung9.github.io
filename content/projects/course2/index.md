@@ -1,5 +1,5 @@
 ---
-draft: false
+draft: true
 title: "Profanity in Early Irish" 
 date: 1990-06-16
 lastmod: 2024-07-12
