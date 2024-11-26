@@ -72,26 +72,61 @@ loss = loss_function(pred_test, y_test)
 - update weights. 
 
 
-## Components of a neural network from scratch
+## Write down the scaffold for a Neural Network and training
 
-First of all, let's define the structure of the neural network. We will take the simp 
+First of all, let's define the structure of the neural network. We will take the simplest version which contains only two dense layers with `ReLu` activation in between.
 ```c
 typedef struct {
-    float *weights1;
-    float *weights2;
-    float *bias1;
-    float *bias2;
-    float *grad_weights1;
-    float *grad_weights2;
-    float *grad_bias1;
-    float *grad_bias2;
+    float *weights1, *bias1;
+    float *weights2, *bias2;
+    float *grad_weights1, *grad_bias1;
+    float *grad_weights2, *grad_bias2;
 } MLP;
 ```
 
+The training process can be written down as below, omitting all the non-core functionality.
+```c
+void train(MLP *nn, float *X_train, float *y_train) {
+    for (int epoch=0; epoch<EPOCHS; epoch++) { // Loop over epochs
+        float total_loss = 0.0;
+        int correct = 0;
+        for (int batch=0; batch<num_batches; batch++) { // for each epoch look over batches
+            X_train_batch = ...;
+            y_train_batch = ...;
+            output = forward(nn, X_train_batch, y_train_batch); //forward computing
+            float loss = loss_function(output, y_train_batch); // calculate the loss for each batch
+            total_loss += loss;
+            grad_weights, grad_bias = backward(nn, X_train_batch, y_train_batch); //back propagation
+            update_weights(nn); // update weights with learning rate.
+        }
+    }
+}
+```
 
+The five key part is `forard()`, `backward()`, `update_weights()` and `loss_function()`. 
+The simplest one is `update_weights()`, which simply follows the function:
+$$
+w = w - \alpha\cdot\nabla L(w)
+$$ 
+where $w$ represents the weights (including bias), $\alpha$ is the learning rate and $\nabla L(w)$ is the gradient of the loss function concerning the weights, which is calculated using `backward()` function.
+
+
+### Loss function
+First of all, we will use cross entropy for loss function.
+```c
+ float cross_entropy_loss(float *output, int *labels, int batch_size) {
+    float total_loss = 0.0f;
+    for (int b = 0; b < batch_size; b++) {
+        total_loss -= logf(fmaxf(output[b * OUTPUT_SIZE + labels[b]], 1e-7f));
+    }
+    return total_loss / batch_size;
+}
+```
+
+### Forward calculation
 Let's write down the building block of the forward function. The fully connected layer is essentially matrix multiplication with weights plus bias term $ \textbf{X}\times\textbf{W}+\textbf{B}$. Since in the backpropagation the weight term and bias term are handled differently, we will implement them seperately.
 
-In the code below we represent 2D matrix using a flattened 1D array. The implimentation only works in seeries, which significantly slows down the computation. This can be optimized using CUDA.
+In the code below we represent 2D matrix using a flattened 1D array. The implimentation only works in series, which significantly slows down the computation. This can be optimized using CUDA. (See later post on how to build a CUDA neural network).
 
 ```C
 // A has shape m x n, B has shape n x k and C has shape m x k
@@ -118,7 +153,7 @@ void bias_forward(float *X, float *bias, int batch_size, int n) {
 
 We also need to define $ \textbf{A}\times\textbf{B}^T$, and $\textbf{A}^T\times\textbf{B}$. It is just a matter of changing the iteration above. 
 
-Here comes the `ReLu` layer, along with the last layer `softmax` function.
+Here comes the `ReLu` layer,
 
 ```c
 // input x has size `n`. Assign zero if the value is negative.
@@ -127,7 +162,9 @@ void relu(float *x, int n) {
         x[i] = fmaxf(0.0f, x[i]);
     }
 }
-
+```
+and the last layer will be a `softmax` function.
+```c
 // input x has size n. 
 void softmax(float *x, int batch_size, int n) {
     for (int b = 0; b < batch_size; b++) {
@@ -161,14 +198,5 @@ void softmax(float *x, int batch_size, int n) {
  }
  ```
 
- ## Calculate loss function
-
- ```c
- float cross_entropy_loss(float *output, int *labels, int batch_size) {
-    float total_loss = 0.0f;
-    for (int b = 0; b < batch_size; b++) {
-        total_loss -= logf(fmaxf(output[b * OUTPUT_SIZE + labels[b]], 1e-7f));
-    }
-    return total_loss / batch_size;
-}
- ```
+ ### Back propagation
+ Let's do the `backward()` function. 
