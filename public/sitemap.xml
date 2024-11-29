@@ -8,9 +8,6 @@
     <loc>/projects/</loc>
     <lastmod>2024-12-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/projects/cuda-nn/</loc>
-    <lastmod>2024-11-12T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/blog/</loc>
     <lastmod>2024-09-20T13:40:59-07:00</lastmod>
   </url><url>
@@ -28,6 +25,12 @@
   </url><url>
     <loc>/blog/popcorn-brain/</loc>
     <lastmod>2024-04-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/projects/neural-network-in-c-ii/</loc>
+    <lastmod>2024-11-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/projects/neural-network-in-c-i/</loc>
+    <lastmod>2024-03-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/projects/rank-aae/</loc>
     <lastmod>2022-12-16T00:00:00+00:00</lastmod>

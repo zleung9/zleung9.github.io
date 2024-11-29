@@ -6,14 +6,23 @@
     <description>Recent content in Courses on Andrew Liang</description>
     <generator>Hugo -- 0.123.7</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 12 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 29 Nov 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>A simple neural network built from scratch written in C</title>
-      <link>/projects/cuda-nn/</link>
-      <pubDate>Fri, 01 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>/projects/cuda-nn/</guid>
-      <description>Components of a neural network To quickly construct the neural network structure, I will use the Pytorth to construct a simple neural network for demonstration purpose. I purposely left out batchnorm, residual blocks, lower-precision, and other optimizations to keep the code simple and easy to understand. The structure is simple. It contains two fully connected layers with a ReLu activation function in between. First I will implement this class in C language, and then turn it into CUCA enabaled code.</description>
+      <title>A simple neural network built from scratch with C (Part II)</title>
+      <link>/projects/neural-network-in-c-ii/</link>
+      <pubDate>Sat, 02 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>/projects/neural-network-in-c-ii/</guid>
+      <description>In Part I we we discussed how to implement the forward calculation, in this article we will continue with the backpropagation.
+Gradient of output layer Considering out simple model with the output layer $z$ and predicted probability $\hat{y}$. The last hidden layer is connected to $z$ via $w_2$. The gradient of loss function w.r.t. $w_2$ is [ref ]: $$ \frac{\partial L}{\partial w_2}=h^T\times(\hat{y}-y) $$
+The second term $\hat{y}-y$ can be given by:</description>
+    </item>
+    <item>
+      <title>A simple neural network built from scratch with C (Part I)</title>
+      <link>/projects/neural-network-in-c-i/</link>
+      <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>/projects/neural-network-in-c-i/</guid>
+      <description>Prototyping a neural network using Python To quickly construct the neural network structure, I will use the Pytorth to construct a simple neural network for demonstration purpose. I purposely left out batchnorm, residual blocks, lower-precision, and other optimizations to keep the code simple and easy to understand. The structure is simple. It contains two fully connected layers with a ReLu activation function in between. First I will implement this class in C language, and then turn it into CUCA enabaled code.</description>
     </item>
     <item>
       <title>A neural network that carries the physical meaning of XAS spectrum</title>

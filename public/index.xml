@@ -6,15 +6,8 @@
     <description>Recent content on Andrew Liang</description>
     <generator>Hugo -- 0.123.7</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 12 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 29 Nov 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>A simple neural network built from scratch written in C</title>
-      <link>/projects/cuda-nn/</link>
-      <pubDate>Fri, 01 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>/projects/cuda-nn/</guid>
-      <description>Components of a neural network To quickly construct the neural network structure, I will use the Pytorth to construct a simple neural network for demonstration purpose. I purposely left out batchnorm, residual blocks, lower-precision, and other optimizations to keep the code simple and easy to understand. The structure is simple. It contains two fully connected layers with a ReLu activation function in between. First I will implement this class in C language, and then turn it into CUCA enabaled code.</description>
-    </item>
     <item>
       <title>Data Processing for Pre-training Llama 3.1</title>
       <link>/blog/llama3.1-pretraining-data/</link>
@@ -59,6 +52,22 @@ No One-on-One Meetings. Jensen has 60 directors who report to him, but he prefer
 第二步是做减法，剔除生活中那些不太重要的人和事。对我而言，最重要的是自身的身体健康(其中包括大脑)、与家人朋友的感情联系。很多表面上维系的人际弱联接和害怕错过的信息源，大部分的时间只是在消耗注意力，可以适当的抛弃。我尝试把邮箱里未读的几十封Newsletter统统删掉，第一次感受到前所未有的清爽与轻松。关于弱联接，还有一句话十分受用：不要想着通过强连接来提升自己，或者通过弱连接来证明自己。很多社交上的心累，就是因为过于在意别人对你的看法。
 第三步是建立界限，去掉导致不当行为的诱因(Prompt)。心理学家BJ福格提出了影响行为的&amp;quot;福格行为模型&amp;quot;:B=MAP，其中B是Behavior(行为)，M是Motivation(动机)，A是Ability(能力)，P是Prompt(诱因)。刷手机只需要动动手指，而我们的动机往往以很高，所以一个有效的方法就是去除诱因。为了去掉那些可能诱发分心行为的诱因，我清理了微信上的朋友圈，只选择性关注少数人的朋友圈，我静音了全部消息，包括个人和群组，并把大部分群组都移到了隐藏组里。我给手机设置了晚上10点到早上8点之间是downtime，没有消息提示，并且所以的消息类应用在这期间都无法使用。
 然后我发现，整个世界都清静了。原来主动截断信息并不会让你错过重要的事情，反而让你可以静下来，仔细想想哪些信息和人际关系是重要的。”静而后能安，安而后能虑“，我开始想如何去主动获取少数的重要的信息。这种掌控感很棒。</description>
+    </item>
+    <item>
+      <title>A simple neural network built from scratch with C (Part II)</title>
+      <link>/projects/neural-network-in-c-ii/</link>
+      <pubDate>Sat, 02 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>/projects/neural-network-in-c-ii/</guid>
+      <description>In Part I we we discussed how to implement the forward calculation, in this article we will continue with the backpropagation.
+Gradient of output layer Considering out simple model with the output layer $z$ and predicted probability $\hat{y}$. The last hidden layer is connected to $z$ via $w_2$. The gradient of loss function w.r.t. $w_2$ is [ref ]: $$ \frac{\partial L}{\partial w_2}=h^T\times(\hat{y}-y) $$
+The second term $\hat{y}-y$ can be given by:</description>
+    </item>
+    <item>
+      <title>A simple neural network built from scratch with C (Part I)</title>
+      <link>/projects/neural-network-in-c-i/</link>
+      <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>/projects/neural-network-in-c-i/</guid>
+      <description>Prototyping a neural network using Python To quickly construct the neural network structure, I will use the Pytorth to construct a simple neural network for demonstration purpose. I purposely left out batchnorm, residual blocks, lower-precision, and other optimizations to keep the code simple and easy to understand. The structure is simple. It contains two fully connected layers with a ReLu activation function in between. First I will implement this class in C language, and then turn it into CUCA enabaled code.</description>
     </item>
     <item>
       <title>A neural network that carries the physical meaning of XAS spectrum</title>

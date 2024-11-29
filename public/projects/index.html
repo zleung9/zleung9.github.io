@@ -129,20 +129,40 @@
 
 <article class="post-entry"> 
 <figure class="entry-cover">
-        <img loading="lazy" srcset="/projects/cuda-nn/featured_hu7371cec8a2d6ba2468f875869f5a9175_968239_360x0_resize_box_3.png 360w ,/projects/cuda-nn/featured_hu7371cec8a2d6ba2468f875869f5a9175_968239_480x0_resize_box_3.png 480w ,/projects/cuda-nn/featured_hu7371cec8a2d6ba2468f875869f5a9175_968239_720x0_resize_box_3.png 720w ,/projects/cuda-nn/featured_hu7371cec8a2d6ba2468f875869f5a9175_968239_1080x0_resize_box_3.png 1080w ,/projects/cuda-nn/featured.png 1280w" 
-            sizes="(min-width: 768px) 720px, 100vw" src="/projects/cuda-nn/featured.png" alt="" 
-            width="1280" height="680">
+        <img loading="lazy" srcset="/projects/neural-network-in-c-ii/featured_hu2f5ef1755a6af1aafd941c43bd6ceeef_83798_360x0_resize_box_3.png 360w ,/projects/neural-network-in-c-ii/featured_hu2f5ef1755a6af1aafd941c43bd6ceeef_83798_480x0_resize_box_3.png 480w ,/projects/neural-network-in-c-ii/featured.png 593w" 
+            sizes="(min-width: 768px) 720px, 100vw" src="/projects/neural-network-in-c-ii/featured.png" alt="" 
+            width="593" height="399">
         
 </figure>
   <header class="entry-header">
-    <h2 class="entry-hint-parent">A simple neural network built from scratch written in C
+    <h2 class="entry-hint-parent">A simple neural network built from scratch with C (Part II)
     </h2>
   </header>
   <div class="entry-content">
-    <p>Components of a neural network To quickly construct the neural network structure, I will use the Pytorth to construct a simple neural network for demonstration purpose. I purposely left out batchnorm, residual blocks, lower-precision, and other optimizations to keep the code simple and easy to understand. The structure is simple. It contains two fully connected layers with a ReLu activation function in between. First I will implement this class in C language, and then turn it into CUCA enabaled code....</p>
+    <p>In Part I we we discussed how to implement the forward calculation, in this article we will continue with the backpropagation.
+Gradient of output layer Considering out simple model with the output layer $z$ and predicted probability $\hat{y}$. The last hidden layer is connected to $z$ via $w_2$. The gradient of loss function w.r.t. $w_2$ is [ref ]: $$ \frac{\partial L}{\partial w_2}=h^T\times(\hat{y}-y) $$
+The second term $\hat{y}-y$ can be given by:...</p>
   </div>
-  <footer class="entry-footer"><span title='2024-11-01 00:00:00 +0000 UTC'>2024-11-01</span>&nbsp;&middot;&nbsp;Andrew Liang</footer>
-  <a class="entry-link" aria-label="post link to A simple neural network built from scratch written in C" href="/projects/cuda-nn/"></a>
+  <footer class="entry-footer"><span title='2024-03-02 00:00:00 +0000 UTC'>2024-03-02</span>&nbsp;&middot;&nbsp;Andrew Liang</footer>
+  <a class="entry-link" aria-label="post link to A simple neural network built from scratch with C (Part II)" href="/projects/neural-network-in-c-ii/"></a>
+</article>
+
+<article class="post-entry"> 
+<figure class="entry-cover">
+        <img loading="lazy" srcset="/projects/neural-network-in-c-i/featured_hu2f5ef1755a6af1aafd941c43bd6ceeef_83798_360x0_resize_box_3.png 360w ,/projects/neural-network-in-c-i/featured_hu2f5ef1755a6af1aafd941c43bd6ceeef_83798_480x0_resize_box_3.png 480w ,/projects/neural-network-in-c-i/featured.png 593w" 
+            sizes="(min-width: 768px) 720px, 100vw" src="/projects/neural-network-in-c-i/featured.png" alt="" 
+            width="593" height="399">
+        
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">A simple neural network built from scratch with C (Part I)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Prototyping a neural network using Python To quickly construct the neural network structure, I will use the Pytorth to construct a simple neural network for demonstration purpose. I purposely left out batchnorm, residual blocks, lower-precision, and other optimizations to keep the code simple and easy to understand. The structure is simple. It contains two fully connected layers with a ReLu activation function in between. First I will implement this class in C language, and then turn it into CUCA enabaled code....</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-03-01 00:00:00 +0000 UTC'>2024-03-01</span>&nbsp;&middot;&nbsp;Andrew Liang</footer>
+  <a class="entry-link" aria-label="post link to A simple neural network built from scratch with C (Part I)" href="/projects/neural-network-in-c-i/"></a>
 </article>
 
 <article class="post-entry"> 
