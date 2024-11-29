@@ -1,8 +1,8 @@
 ---
 draft: false
-title: A simple neural network built from scratch written in C
-date: 2024-11-01
-lastmod: 2024-11-12
+title: "A simple neural network built from scratch with C (Part I)"
+date: 2024-03-01
+lastmod: 2024-11-29s
 tags: []
 author: 
 - Andrew Liang
@@ -19,8 +19,7 @@ showToc: true
 disableAnchoredHeadings: false
 ---
 
-## Components of a neural network
-
+## Prototyping a neural network using Python
 To quickly construct the neural network structure, I will use the Pytorth to construct a simple neural network for demonstration purpose.  I purposely left out batchnorm, residual blocks, lower-precision, and other optimizations to keep the code simple and easy to understand.
 The structure is simple. It contains two fully connected layers with a ReLu activation function in between. First I will implement this class in C language, and then turn it into CUCA enabaled code. 
 ```Python
@@ -72,7 +71,7 @@ loss = loss_function(pred_test, y_test)
 - update weights. 
 
 
-## Write down the scaffold for a Neural Network and training
+## The scaffold for a Neural Network and training in C
 
 First of all, let's define the structure of the neural network. We will take the simplest version which contains only two dense layers with `ReLu` activation in between.
 ```c
@@ -111,8 +110,17 @@ $$
 where $w$ represents the weights (including bias), $\alpha$ is the learning rate and $\nabla L(w)$ is the gradient of the loss function concerning the weights, which is calculated using `backward()` function.
 
 
-### Loss function
-First of all, we will use cross entropy for loss function.
+## Cross-entropy as loss function
+First of all, we will use cross entropy for loss function. As we know, the cross-entropy for 2 class is given by:
+$$
+L=-\frac{1}{m}\sum_i{\left[y_i\log(\hat{y}_i)+(1-y_i)\log(1-\hat{y}_i)\right]}
+$$
+where $m$ is the batch size and $\hat{y}$ is the predicted probability (the layer after the output layer through softmax function). Whereas for $c$ classes, the cross-entropy function is given by:
+$$
+L=-\frac{1}{m}\sum_i\sum_c{y_i^c\log(\hat{y}_i^c)}
+$$
+
+In our case $y_i$ is one-hot coded, as in the code below:
 ```c
  float cross_entropy_loss(float *output, int *labels, int batch_size) {
     float total_loss = 0.0f;
@@ -123,8 +131,8 @@ First of all, we will use cross entropy for loss function.
 }
 ```
 
-### Forward calculation
-Let's write down the building block of the forward function. The fully connected layer is essentially matrix multiplication with weights plus bias term $ \textbf{X}\times\textbf{W}+\textbf{B}$. Since in the backpropagation the weight term and bias term are handled differently, we will implement them seperately.
+## Forward calculation is simply matrix multiplication
+Let's write down the building block of the forward function. The fully connected layer is essentially matrix multiplication with weights plus bias term $X\times W+B$. Since in the backpropagation the weight term and bias term are handled differently, we will implement them seperately.
 
 In the code below we represent 2D matrix using a flattened 1D array. The implimentation only works in series, which significantly slows down the computation. This can be optimized using CUDA. (See later post on how to build a CUDA neural network).
 
@@ -151,8 +159,9 @@ void bias_forward(float *X, float *bias, int batch_size, int n) {
 }
 ```
 
-We also need to define $ \textbf{A}\times\textbf{B}^T$, and $\textbf{A}^T\times\textbf{B}$. It is just a matter of changing the iteration above. 
+We also need to define $ A\times B^T$, and $A^T\times B$. It is just a matter of changing the iteration above. 
 
+## ReLu as activation and Softmax as last layer
 Here comes the `ReLu` layer,
 
 ```c
@@ -163,7 +172,7 @@ void relu(float *x, int n) {
     }
 }
 ```
-and the last layer will be a `softmax` function.
+and the last layer will be a `softmax` function to turn the output layer into probabilities
 ```c
 // input x has size n. 
 void softmax(float *x, int batch_size, int n) {
@@ -179,24 +188,23 @@ void softmax(float *x, int batch_size, int n) {
     }
 }
 ```
+## Model forward
+We now construct the forward function of the model.
+```c
+void forward(MLP *nn, float *X, float *hidden, float *output, int batch_size) {
+// Input to Hidden: X @ W1
+matmul_a_b(X, nn->weight1, hidden, batch_size, INPUT_SIZE, HIDDEN_SIZE);
+// Add bias1
+bias_forward(hidden, nn->bias1, batch_size, HIDDEN_SIZE);
+// Apply ReLU
+relu_forward(hidden, batch_size * HIDDEN_SIZE);
+// Hidden to Output (hidden @ W2)
+matmul_a_b(hidden, nn->weight2, output, batch_size, HIDDEN_SIZE, OUTPUT_SIZE);
+// Add bias2
+bias_forward(output, nn->bias2, batch_size, OUTPUT_SIZE);
+// Apply softmac
+softmax(output, batch_size, OUTPUT_SIZE);
+}
+```
 
- We now construct the forward function of the model.
- ```c
- void forward(MLP *nn, float *X, float *hidden, float *output, int batch_size) {
-    // Input to Hidden: X @ W1
-    matmul_a_b(X, nn->weight1, hidden, batch_size, INPUT_SIZE, HIDDEN_SIZE);
-    // Add bias1
-    bias_forward(hidden, nn->bias1, batch_size, HIDDEN_SIZE);
-    // Apply ReLU
-    relu_forward(hidden, batch_size * HIDDEN_SIZE);
-    // Hidden to Output (hidden @ W2)
-    matmul_a_b(hidden, nn->weight2, output, batch_size, HIDDEN_SIZE, OUTPUT_SIZE);
-    // Add bias2
-    bias_forward(output, nn->bias2, batch_size, OUTPUT_SIZE);
-    // Apply softmac
-    softmax(output, batch_size, OUTPUT_SIZE);
- }
- ```
-
- ### Back propagation
- Let's do the `backward()` function. 
+The backpropagation is more complicated since we will have to calculate the gradients of loss function with respect to each layer starting from the output layer. This will be explained in Part II.
