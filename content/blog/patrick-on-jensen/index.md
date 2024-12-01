@@ -1,7 +1,7 @@
 ---
 draft: false
 title: "Patrick Collison's latest interview on Jensen Huang"
-date: 2024-04-24T19:29:54-07:00
+date: 2024-04-24
 lastmod: 2024-04-24
 tags: []
 authors:

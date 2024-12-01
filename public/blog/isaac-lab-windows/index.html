@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>A simpler way of installing Isaac Lab on Windows | Andrew Liang</title>
+<meta name="keywords" content="">
+<meta name="description" content="What is Isaac Lab Isaac Lab is the top layer of the three-layer structure of Omniverse Reinforcement Learning setup. At the bottom is the Nvidia Omniverse platform, which has most fundamental simulation tools such as physics, photorealistic rendering and USD scene creation. The middle layer is Isaac Sim which is packaged with a bunch of core robotic tools. Isaac Lab is built on top of Isaac Sim. It provides a flexible framework for robotic learning that exploits latest simulation technologies, such as reinforcement learning.">
+<meta name="author" content="Andrew Liang">
+<link rel="canonical" href="/blog/isaac-lab-windows/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e690afcd5c523330d5c8b4d746eb158361600a015e99518d4d246a6ccab0cc19.css" integrity="sha256-5pCvzVxSMzDVyLTXRusVg2FgCgFemVGNTSRqbMqwzBk=" rel="preload stylesheet" as="style">
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="/blog/isaac-lab-windows/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="A simpler way of installing Isaac Lab on Windows" />
+<meta property="og:description" content="What is Isaac Lab Isaac Lab is the top layer of the three-layer structure of Omniverse Reinforcement Learning setup. At the bottom is the Nvidia Omniverse platform, which has most fundamental simulation tools such as physics, photorealistic rendering and USD scene creation. The middle layer is Isaac Sim which is packaged with a bunch of core robotic tools. Isaac Lab is built on top of Isaac Sim. It provides a flexible framework for robotic learning that exploits latest simulation technologies, such as reinforcement learning." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/blog/isaac-lab-windows/" />
+<meta property="og:image" content="/isaac-lab-echosystem.png" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2024-11-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-11-30T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="/isaac-lab-echosystem.png" />
+<meta name="twitter:title" content="A simpler way of installing Isaac Lab on Windows"/>
+<meta name="twitter:description" content="What is Isaac Lab Isaac Lab is the top layer of the three-layer structure of Omniverse Reinforcement Learning setup. At the bottom is the Nvidia Omniverse platform, which has most fundamental simulation tools such as physics, photorealistic rendering and USD scene creation. The middle layer is Isaac Sim which is packaged with a bunch of core robotic tools. Isaac Lab is built on top of Isaac Sim. It provides a flexible framework for robotic learning that exploits latest simulation technologies, such as reinforcement learning."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Books",
+      "item": "/blog/"
+    }
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "A simpler way of installing Isaac Lab on Windows",
+      "item": "/blog/isaac-lab-windows/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "A simpler way of installing Isaac Lab on Windows",
+  "name": "A simpler way of installing Isaac Lab on Windows",
+  "description": "What is Isaac Lab Isaac Lab is the top layer of the three-layer structure of Omniverse Reinforcement Learning setup. At the bottom is the Nvidia Omniverse platform, which has most fundamental simulation tools such as physics, photorealistic rendering and USD scene creation. The middle layer is Isaac Sim which is packaged with a bunch of core robotic tools. Isaac Lab is built on top of Isaac Sim. It provides a flexible framework for robotic learning that exploits latest simulation technologies, such as reinforcement learning.",
+  "keywords": [
+    
+  ],
+  "articleBody": "What is Isaac Lab Isaac Lab is the top layer of the three-layer structure of Omniverse Reinforcement Learning setup. At the bottom is the Nvidia Omniverse platform, which has most fundamental simulation tools such as physics, photorealistic rendering and USD scene creation. The middle layer is Isaac Sim which is packaged with a bunch of core robotic tools. Isaac Lab is built on top of Isaac Sim. It provides a flexible framework for robotic learning that exploits latest simulation technologies, such as reinforcement learning.\nSystem Requirements for Isaac Lab The official website recommends system requirements with at least 32GB RAM and 16GB VRAM for Isaac Lab. (Note that Isaac Sim requirements is usually lower.)\nInstall Isaac Lab on Windows We will run Isaac Lab on our local machine. Isaac Sim (IS) is required in order to run Isaac Lab (IL). The official installation guide recommends installing both IS and IL in the same “conda” virtual environment. However, I ran into a lot of trouble installing this way. Since I already have IS installed through Omniverse Launcher. I will show how to install IL without a conda environment.\nInstall Isaac Sim. If you refer to the official installation guide for IL, it will suggest installing IS in a conda envionment. This could be problematic for some Windows users, we will take an easier way: isntall it from Omniverse Launch.\nGo to the installation guide for IS, and downnload the windows Installer. Follow the instructions. The Omniverse Launcher will look like the interface below. In the “EXCHANGE” tab and install “Isaac Sim” and “Cache”.\nTo verify the installation, lauch Isaac Sim in LIBRARY tab. It will launch the simulator with a black stage.\nInstall Isaac Lab. This part is the same as the official installation guide . Download the IsaacLab repository to your computer or clone it using git.\nHere comes the key step. Before running isaaclab.bat --install as suggested by the guide, we need to find the python interpretor that comes with Isaac Sim you have installed and replace the python path in isaaclab.bat file. You can find it in the Isaac Sim App Selector. For example, on my ocmputer the path is: C:\\Users\\zleun\\AppData\\Local\\ov\\pkg\\Isaac-sim-4.2.0\\python.bat.\nOpen the isaaclab.bat file using a text editor, locate to :extract_python_exe function, change the python exe path to set python_exe=\"your_isaac_sim_python_path\", as shown below. That’s it, you odn’t need to change anything else. The purpose is to force the script to use the python that comes with the IS you have already installed because it has all the dependencies to install IL.\nrem extract the python from isaacsim :extract_python_exe rem check if using conda if not \"%CONDA_PREFIX%\"==\"\" ( rem use conda python set python_exe=%CONDA_PREFIX%\\python.exe ) else ( rem use kit python set python_exe=\"C:\\Users\\zleun\\AppData\\Local\\ov\\pkg\\isaac-sim-4.2.0\\python.bat\" ) rem check for if isaac sim was installed to system python if not exist \"%python_exe%\" ( set \"python_exe=\" python -m pip show isaacsim-rl \u003e nul 2\u003e\u00261 if %ERRORLEVEL% equ 0 ( for /f \"delims=\" %%i in ('where python') do ( if not defined python_exe ( set \"python_exe=%%i\" ) ) ) ) if not exist \"%python_exe%\" ( echo [ERROR] Unable to find any Python executable at path: %python_exe% echo %tab%This could be due to the following reasons: echo %tab%1. Conda environment is not activated. echo %tab%2. Python executable is not available at the default path: %ISAACLAB_PATH%\\_isaac_sim\\python.bat exit /b 1 ) goto :eof You should be good to go! Follow the official guide and verify the installation. Don’t forget to start your Cache server from Omniverse Launcher before doing so (otherwise it will be very slow.)\n",
+  "wordCount" : "590",
+  "inLanguage": "en",
+  "image":"/isaac-lab-echosystem.png","datePublished": "2024-11-30T00:00:00Z",
+  "dateModified": "2024-11-30T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Andrew Liang"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/blog/isaac-lab-windows/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Andrew Liang",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="/" accesskey="h" title="Andrew Liang">Andrew Liang</a>
+            <div class="logo-switches">
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="/resume.pdf" title="CV">
+                    <span>CV</span>
+                </a>
+            </li>
+            <li>
+                <a href="/papers/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="/blog/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      A simpler way of installing Isaac Lab on Windows
+    </h1>
+    <div class="post-meta"><span title='2024-11-30 00:00:00 +0000 UTC'>2024-11-30</span>&nbsp;&middot;&nbsp;Andrew Liang
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-is-isaac-lab">What is Isaac Lab</a></li>
+    <li><a href="#install-isaac-lab-on-windows">Install Isaac Lab on Windows</a></li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="what-is-isaac-lab">What is Isaac Lab</h2>
+<p>Isaac Lab is the top layer of the three-layer structure of Omniverse Reinforcement Learning setup.
+At the bottom is the Nvidia Omniverse platform, which has most fundamental simulation tools such as physics, photorealistic rendering and USD scene creation. The middle layer is Isaac Sim which is packaged with a bunch of core robotic tools. Isaac Lab is built on top of Isaac Sim. It provides a flexible framework for robotic learning that exploits latest simulation technologies, such as reinforcement learning.</p>
+<p><img loading="lazy" src="./isaac-lab-echosystem.png" alt="isaac lab echosystem"  />
+</p>
+<h3 id="system-requirements-for-isaac-lab">System Requirements for Isaac Lab</h3>
+<p>The official website recommends system requirements with at least 32GB RAM and 16GB VRAM for Isaac Lab. (Note that Isaac Sim requirements is usually lower.)</p>
+<h2 id="install-isaac-lab-on-windows">Install Isaac Lab on Windows</h2>
+<p>We will run Isaac Lab on our local machine.
+Isaac Sim (IS) is required in order to run Isaac Lab (IL). The official installation guide recommends installing both IS and IL in the same &ldquo;conda&rdquo; virtual environment. However, I ran into a lot of trouble installing this way. Since I already have IS installed through Omniverse Launcher. I will show how to install IL without a conda environment.</p>
+<h3 id="install-isaac-sim">Install Isaac Sim.</h3>
+<p>If you refer to the official <a href="https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/index.html" target="_blank">installation guide</a>
+ for IL, it will suggest installing IS in a conda envionment. This could be problematic for some Windows users, we will take an easier way: isntall it from Omniverse Launch.</p>
+<p>Go to the <a href="https://docs.omniverse.nvidia.com/isaacsim/latest/installation/install_workstation.html" target="_blank">installation guide</a>
+ for IS, and downnload the windows Installer. Follow the instructions. The Omniverse Launcher will look like the interface below. In the &ldquo;EXCHANGE&rdquo; tab and install &ldquo;Isaac Sim&rdquo; and &ldquo;Cache&rdquo;.</p>
+<p><img loading="lazy" src="./omniverse-luncher-screenshot.png" alt="omniverse luncher"  />
+</p>
+<p>To verify the installation, lauch Isaac Sim in LIBRARY tab. It will launch the simulator with a black stage.</p>
+<h3 id="install-isaac-lab">Install Isaac Lab.</h3>
+<p>This part is the same as the official <a href="https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/index.html" target="_blank">installation guide</a>
+. Download the IsaacLab repository to your computer or clone it using git.</p>
+<p>Here comes the key step. Before running <code>isaaclab.bat --install</code> as suggested by the guide,  we need to find the python interpretor that comes with Isaac Sim you have installed and replace the python path in <code>isaaclab.bat</code> file. You can find it in the Isaac Sim App Selector. For example, on my ocmputer the path is: <code>C:\Users\zleun\AppData\Local\ov\pkg\Isaac-sim-4.2.0\python.bat</code>.</p>
+<p><img loading="lazy" src="./isaac-sim-launcher.png" alt="isaac sim launcher"  />
+</p>
+<p>Open the <code>isaaclab.bat</code> file using a text editor, locate to <code>:extract_python_exe</code> function, change the python exe path to <code>set python_exe=&quot;your_isaac_sim_python_path&quot;</code>, as shown below. That&rsquo;s it, you odn&rsquo;t need to change anything else. The purpose is to force the script to use the python that comes with the IS you have already installed because it has all the dependencies to install IL.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bat" data-lang="bat"><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">rem extract the python from isaacsim</span>
+</span></span><span style="display:flex;"><span>:extract_python_exe
+</span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">rem check if using conda</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a">if</span> <span style="color:#00a">not</span> <span style="color:#a50">&#34;</span><span style="color:#a00">%CONDA_PREFIX%</span><span style="color:#a50">&#34;</span>==<span style="color:#a50">&#34;&#34;</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#aaa;font-style:italic">rem use conda python</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a">set</span> <span style="color:#a00">python_exe</span>=<span style="color:#a00">%CONDA_PREFIX%</span>\python.exe
+</span></span><span style="display:flex;"><span>) <span style="color:#00a">else</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#aaa;font-style:italic">rem use kit python</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a">set</span> <span style="color:#a00">python_exe</span>=<span style="color:#a50">&#34;C:\Users\zleun\AppData\Local\ov\pkg\isaac-sim-4.2.0\python.bat&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#aaa;font-style:italic">rem check for if isaac sim was installed to system python</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a">if</span> <span style="color:#00a">not</span> <span style="color:#00a">exist</span> <span style="color:#a50">&#34;</span><span style="color:#a00">%python_exe%</span><span style="color:#a50">&#34;</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#00a">set</span> <span style="color:#a50">&#34;python_exe=&#34;</span>
+</span></span><span style="display:flex;"><span>    python -m pip show isaacsim-rl &gt; nul <span style="color:#099">2</span>&gt;&amp;<span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a">if</span> <span style="color:#a00">%ERRORLEVEL%</span> <span style="color:#00a">equ</span> 0 (
+</span></span><span style="display:flex;"><span>        <span style="color:#00a">for</span> <span style="color:#00a">/f</span> <span style="color:#a50">&#34;delims=&#34;</span> <span style="color:#a50">%%</span>i <span style="color:#00a">in</span> (<span style="color:#a50">&#39;where python&#39;</span>) <span style="color:#00a">do</span> (
+</span></span><span style="display:flex;"><span>            <span style="color:#00a">if</span> <span style="color:#00a">not</span> <span style="color:#00a">defined</span> <span style="color:#a00">python_exe</span> (
+</span></span><span style="display:flex;"><span>                <span style="color:#00a">set</span> <span style="color:#a50">&#34;python_exe=</span><span style="color:#a50">%%</span><span style="color:#a50">i&#34;</span>
+</span></span><span style="display:flex;"><span>            )
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#00a">if</span> <span style="color:#00a">not</span> <span style="color:#00a">exist</span> <span style="color:#a50">&#34;</span><span style="color:#a00">%python_exe%</span><span style="color:#a50">&#34;</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#00a">echo</span> [ERROR] Unable to find any Python executable at path: <span style="color:#a00">%python_exe%</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a">echo</span> <span style="color:#a00">%tab%</span>This could be due to the following reasons:
+</span></span><span style="display:flex;"><span>    <span style="color:#00a">echo</span> <span style="color:#a00">%tab%</span>1. Conda environment is not activated.
+</span></span><span style="display:flex;"><span>    <span style="color:#00a">echo</span> <span style="color:#a00">%tab%</span>2. Python executable is not available at the default path: <span style="color:#a00">%ISAACLAB_PATH%</span>\_isaac_sim\python.bat
+</span></span><span style="display:flex;"><span>    <span style="color:#00a">exit</span> /b 1
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#00a">goto</span> :eof
+</span></span></code></pre></div><p>You should be good to go! Follow the official guide and verify the installation. Don&rsquo;t forget to start your Cache server from Omniverse Launcher before doing so (otherwise it will be very slow.)</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="/">Andrew Liang</a></span> ·     
+    <span>
+    Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

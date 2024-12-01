@@ -6,12 +6,19 @@
     <description>Recent content in Books on Andrew Liang</description>
     <generator>Hugo -- 0.123.7</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 20 Sep 2024 13:40:59 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 30 Nov 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A simpler way of installing Isaac Lab on Windows</title>
+      <link>/blog/isaac-lab-windows/</link>
+      <pubDate>Sat, 30 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>/blog/isaac-lab-windows/</guid>
+      <description>What is Isaac Lab Isaac Lab is the top layer of the three-layer structure of Omniverse Reinforcement Learning setup. At the bottom is the Nvidia Omniverse platform, which has most fundamental simulation tools such as physics, photorealistic rendering and USD scene creation. The middle layer is Isaac Sim which is packaged with a bunch of core robotic tools. Isaac Lab is built on top of Isaac Sim. It provides a flexible framework for robotic learning that exploits latest simulation technologies, such as reinforcement learning.</description>
+    </item>
     <item>
       <title>Data Processing for Pre-training Llama 3.1</title>
       <link>/blog/llama3.1-pretraining-data/</link>
-      <pubDate>Fri, 20 Sep 2024 13:40:59 -0700</pubDate>
+      <pubDate>Sun, 22 Sep 2024 13:40:59 -0700</pubDate>
       <guid>/blog/llama3.1-pretraining-data/</guid>
       <description>The performance of large language models (LLMs) is highly dependent on the quality of the data they are trained on. However, the data curation and cleaning process is underrated in today&amp;rsquo;s discussions of AI.
 This article illustrates how Llama 3.1 developers collect and clean data to be used for pre-training Llama 3.1, which involved a multi-faceted approach to data curation, cleaning, and filtering. The main content is taken from the technical report of Llama 3.</description>
@@ -19,7 +26,7 @@ This article illustrates how Llama 3.1 developers collect and clean data to be u
     <item>
       <title>Patrick Collison&#39;s latest interview on Jensen Huang</title>
       <link>/blog/patrick-on-jensen/</link>
-      <pubDate>Wed, 24 Apr 2024 19:29:54 -0700</pubDate>
+      <pubDate>Wed, 24 Apr 2024 00:00:00 +0000</pubDate>
       <guid>/blog/patrick-on-jensen/</guid>
       <description>On April 24th, Patrick Collison, CEO of Stripe, interviewed Jensen Huang, who is the CEO of Nvidia. Below are the main takeaways:
 No One-on-One Meetings. Jensen has 60 directors who report to him, but he prefers not to have one-on-one meetings. By having all 60 directors together at once, he has eliminated at least 7 layers from the company&amp;rsquo;s structure. He believes it is more effective to communicate with all stakeholders simultaneously, allowing information to flow more efficiently among people.</description>
