@@ -2,7 +2,7 @@
 draft: false
 title: "A simple neural network built from scratch with C (Part I)"
 date: 2024-03-01
-lastmod: 2024-11-29s
+lastmod: 2024-11-29
 tags: []
 author: 
 - Andrew Liang

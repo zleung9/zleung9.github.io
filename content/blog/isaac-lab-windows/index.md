@@ -78,5 +78,23 @@ if not exist "%python_exe%" (
 goto :eof
 ```
 
-You should be good to go! Follow the official guide and verify the installation. Don't forget to start your Cache server from Omniverse Launcher before doing so (otherwise it will be very slow.)
+You should be good to go! 
+
+### Verify installation
+Just follow the official installation guid and run the command below:
+```
+isaaclab.bat -p source\standalone\tutorials\00_sim\create_empty.py
+```
+**Note: Don't forget to start your Cache server from Omniverse Launcher before doing so (otherwise it will be very slow.)**
+
+Since we changed the Python path in `isaaclab.bat` file, it will use the bundled python interpretor. 
+
+Alternatively, you can use python to run the sample script. Please do note that only the Python you install isaac-lab with will work, for example:
+```
+C:\Users\zleun\AppData\Local\ov\pkg\isaac-sim-4.2.0\python.bat source\standalone\tutorials\00_sim\create_empty.py
+```
+will work on my computer. Please change the python path to the path on your computer.
+
+The above command should launch the simulator and display a window with a black viewport as shown below. You can exit the script by pressing `Ctrl`+`C` on your terminal. On Windows machines, please terminate the process from Command Prompt using `Ctrl`+`Break` or `Ctrl`+`fn`+`B`.
+
 
