@@ -7,12 +7,18 @@
 <meta name="robots" content="index, follow">
 <title>A simple neural network built from scratch with C (Part II) | Andrew Liang</title>
 <meta name="keywords" content="">
-<meta name="description" content="In Part I we we discussed how to implement the forward calculation, in this article we will continue with the backpropagation.
-Gradient of output layer Considering out simple model with the output layer $z$ and predicted probability $\hat{y}$. The last hidden layer is connected to $z$ via $w_2$. The gradient of loss function w.r.t. $w_2$ is [ref ]: $$ \frac{\partial L}{\partial w_2}=h^T\times(\hat{y}-y) $$
+<meta name="description" content="In Part I
+ we  we discussed how to implement the forward calculation, in this article we will continue with the backpropagation.
+Gradient of output layer
+Considering out simple model with the output layer $z$ and predicted probability $\hat{y}$. The last hidden layer is connected to $z$ via $w_2$. The gradient of loss function w.r.t. $w_2$ is [ref
+]:
+$$
+\frac{\partial L}{\partial w_2}=h^T\times(\hat{y}-y)
+$$
 The second term $\hat{y}-y$ can be given by:">
 <meta name="author" content="Andrew Liang">
 <link rel="canonical" href="/projects/neural-network-in-c-ii/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.e690afcd5c523330d5c8b4d746eb158361600a015e99518d4d246a6ccab0cc19.css" integrity="sha256-5pCvzVxSMzDVyLTXRusVg2FgCgFemVGNTSRqbMqwzBk=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d6cf4a8fa527330d9574f36d8d000fdaf90ca838ff09ab72fc27d3cb7ca1ddc5.css" integrity="sha256-1s9Kj6UnMw2VdPNtjQAP2vkMqDj/Caty/CfTy3yh3cU=" rel="preload stylesheet" as="style">
 <link rel="icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -29,8 +35,14 @@ The second term $\hat{y}-y$ can be given by:">
 
     </style>
 </noscript><meta property="og:title" content="A simple neural network built from scratch with C (Part II)" />
-<meta property="og:description" content="In Part I we we discussed how to implement the forward calculation, in this article we will continue with the backpropagation.
-Gradient of output layer Considering out simple model with the output layer $z$ and predicted probability $\hat{y}$. The last hidden layer is connected to $z$ via $w_2$. The gradient of loss function w.r.t. $w_2$ is [ref ]: $$ \frac{\partial L}{\partial w_2}=h^T\times(\hat{y}-y) $$
+<meta property="og:description" content="In Part I
+ we  we discussed how to implement the forward calculation, in this article we will continue with the backpropagation.
+Gradient of output layer
+Considering out simple model with the output layer $z$ and predicted probability $\hat{y}$. The last hidden layer is connected to $z$ via $w_2$. The gradient of loss function w.r.t. $w_2$ is [ref
+]:
+$$
+\frac{\partial L}{\partial w_2}=h^T\times(\hat{y}-y)
+$$
 The second term $\hat{y}-y$ can be given by:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/projects/neural-network-in-c-ii/" />
@@ -41,8 +53,14 @@ The second term $\hat{y}-y$ can be given by:" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="/featured.png" />
 <meta name="twitter:title" content="A simple neural network built from scratch with C (Part II)"/>
-<meta name="twitter:description" content="In Part I we we discussed how to implement the forward calculation, in this article we will continue with the backpropagation.
-Gradient of output layer Considering out simple model with the output layer $z$ and predicted probability $\hat{y}$. The last hidden layer is connected to $z$ via $w_2$. The gradient of loss function w.r.t. $w_2$ is [ref ]: $$ \frac{\partial L}{\partial w_2}=h^T\times(\hat{y}-y) $$
+<meta name="twitter:description" content="In Part I
+ we  we discussed how to implement the forward calculation, in this article we will continue with the backpropagation.
+Gradient of output layer
+Considering out simple model with the output layer $z$ and predicted probability $\hat{y}$. The last hidden layer is connected to $z$ via $w_2$. The gradient of loss function w.r.t. $w_2$ is [ref
+]:
+$$
+\frac{\partial L}{\partial w_2}=h^T\times(\hat{y}-y)
+$$
 The second term $\hat{y}-y$ can be given by:"/>
 
 
@@ -72,11 +90,11 @@ The second term $\hat{y}-y$ can be given by:"/>
   "@type": "BlogPosting",
   "headline": "A simple neural network built from scratch with C (Part II)",
   "name": "A simple neural network built from scratch with C (Part II)",
-  "description": "In Part I we we discussed how to implement the forward calculation, in this article we will continue with the backpropagation.\nGradient of output layer Considering out simple model with the output layer $z$ and predicted probability $\\hat{y}$. The last hidden layer is connected to $z$ via $w_2$. The gradient of loss function w.r.t. $w_2$ is [ref ]: $$ \\frac{\\partial L}{\\partial w_2}=h^T\\times(\\hat{y}-y) $$\nThe second term $\\hat{y}-y$ can be given by:",
+  "description": "In Part I\rwe we discussed how to implement the forward calculation, in this article we will continue with the backpropagation.\nGradient of output layer Considering out simple model with the output layer $z$ and predicted probability $\\hat{y}$. The last hidden layer is connected to $z$ via $w_2$. The gradient of loss function w.r.t. $w_2$ is [ref\r]: $$ \\frac{\\partial L}{\\partial w_2}=h^T\\times(\\hat{y}-y) $$\nThe second term $\\hat{y}-y$ can be given by:\n",
   "keywords": [
     
   ],
-  "articleBody": "In Part I we we discussed how to implement the forward calculation, in this article we will continue with the backpropagation.\nGradient of output layer Considering out simple model with the output layer $z$ and predicted probability $\\hat{y}$. The last hidden layer is connected to $z$ via $w_2$. The gradient of loss function w.r.t. $w_2$ is [ref ]: $$ \\frac{\\partial L}{\\partial w_2}=h^T\\times(\\hat{y}-y) $$\nThe second term $\\hat{y}-y$ can be given by:\nvoid compute_output_gradient(float *grad_output, float *probability, int *labels, int batch_size) { for (int b; b",
+  "articleBody": "In Part I\rwe we discussed how to implement the forward calculation, in this article we will continue with the backpropagation.\nGradient of output layer Considering out simple model with the output layer $z$ and predicted probability $\\hat{y}$. The last hidden layer is connected to $z$ via $w_2$. The gradient of loss function w.r.t. $w_2$ is [ref\r]: $$ \\frac{\\partial L}{\\partial w_2}=h^T\\times(\\hat{y}-y) $$\nThe second term $\\hat{y}-y$ can be given by:\nvoid compute_output_gradient(float *grad_output, float *probability, int *labels, int batch_size) { for (int b; b",
   "wordCount" : "537",
   "inLanguage": "en",
   "image":"/featured.png","datePublished": "2024-03-02T00:00:00Z",

@@ -7,10 +7,12 @@
 <meta name="robots" content="index, follow">
 <title>A simple neural network built from scratch with C (Part I) | Andrew Liang</title>
 <meta name="keywords" content="">
-<meta name="description" content="Prototyping a neural network using Python To quickly construct the neural network structure, I will use the Pytorth to construct a simple neural network for demonstration purpose. I purposely left out batchnorm, residual blocks, lower-precision, and other optimizations to keep the code simple and easy to understand. The structure is simple. It contains two fully connected layers with a ReLu activation function in between. First I will implement this class in C language, and then turn it into CUCA enabaled code.">
+<meta name="description" content="Prototyping a neural network using Python
+To quickly construct the neural network structure, I will use the Pytorth to construct a simple neural network for demonstration purpose.  I purposely left out batchnorm, residual blocks, lower-precision, and other optimizations to keep the code simple and easy to understand.
+The structure is simple. It contains two fully connected layers with a ReLu activation function in between. First I will implement this class in C language, and then turn it into CUCA enabaled code.">
 <meta name="author" content="Andrew Liang">
 <link rel="canonical" href="/projects/neural-network-in-c-i/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.e690afcd5c523330d5c8b4d746eb158361600a015e99518d4d246a6ccab0cc19.css" integrity="sha256-5pCvzVxSMzDVyLTXRusVg2FgCgFemVGNTSRqbMqwzBk=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d6cf4a8fa527330d9574f36d8d000fdaf90ca838ff09ab72fc27d3cb7ca1ddc5.css" integrity="sha256-1s9Kj6UnMw2VdPNtjQAP2vkMqDj/Caty/CfTy3yh3cU=" rel="preload stylesheet" as="style">
 <link rel="icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -27,17 +29,21 @@
 
     </style>
 </noscript><meta property="og:title" content="A simple neural network built from scratch with C (Part I)" />
-<meta property="og:description" content="Prototyping a neural network using Python To quickly construct the neural network structure, I will use the Pytorth to construct a simple neural network for demonstration purpose. I purposely left out batchnorm, residual blocks, lower-precision, and other optimizations to keep the code simple and easy to understand. The structure is simple. It contains two fully connected layers with a ReLu activation function in between. First I will implement this class in C language, and then turn it into CUCA enabaled code." />
+<meta property="og:description" content="Prototyping a neural network using Python
+To quickly construct the neural network structure, I will use the Pytorth to construct a simple neural network for demonstration purpose.  I purposely left out batchnorm, residual blocks, lower-precision, and other optimizations to keep the code simple and easy to understand.
+The structure is simple. It contains two fully connected layers with a ReLu activation function in between. First I will implement this class in C language, and then turn it into CUCA enabaled code." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/projects/neural-network-in-c-i/" />
 <meta property="og:image" content="/featured.png" /><meta property="article:section" content="projects" />
 <meta property="article:published_time" content="2024-03-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-03-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-11-29T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="/featured.png" />
 <meta name="twitter:title" content="A simple neural network built from scratch with C (Part I)"/>
-<meta name="twitter:description" content="Prototyping a neural network using Python To quickly construct the neural network structure, I will use the Pytorth to construct a simple neural network for demonstration purpose. I purposely left out batchnorm, residual blocks, lower-precision, and other optimizations to keep the code simple and easy to understand. The structure is simple. It contains two fully connected layers with a ReLu activation function in between. First I will implement this class in C language, and then turn it into CUCA enabaled code."/>
+<meta name="twitter:description" content="Prototyping a neural network using Python
+To quickly construct the neural network structure, I will use the Pytorth to construct a simple neural network for demonstration purpose.  I purposely left out batchnorm, residual blocks, lower-precision, and other optimizations to keep the code simple and easy to understand.
+The structure is simple. It contains two fully connected layers with a ReLu activation function in between. First I will implement this class in C language, and then turn it into CUCA enabaled code."/>
 
 
 <script type="application/ld+json">
@@ -66,7 +72,7 @@
   "@type": "BlogPosting",
   "headline": "A simple neural network built from scratch with C (Part I)",
   "name": "A simple neural network built from scratch with C (Part I)",
-  "description": "Prototyping a neural network using Python To quickly construct the neural network structure, I will use the Pytorth to construct a simple neural network for demonstration purpose. I purposely left out batchnorm, residual blocks, lower-precision, and other optimizations to keep the code simple and easy to understand. The structure is simple. It contains two fully connected layers with a ReLu activation function in between. First I will implement this class in C language, and then turn it into CUCA enabaled code.",
+  "description": "Prototyping a neural network using Python To quickly construct the neural network structure, I will use the Pytorth to construct a simple neural network for demonstration purpose. I purposely left out batchnorm, residual blocks, lower-precision, and other optimizations to keep the code simple and easy to understand. The structure is simple. It contains two fully connected layers with a ReLu activation function in between. First I will implement this class in C language, and then turn it into CUCA enabaled code.\n",
   "keywords": [
     
   ],
@@ -74,7 +80,7 @@
   "wordCount" : "1161",
   "inLanguage": "en",
   "image":"/featured.png","datePublished": "2024-03-01T00:00:00Z",
-  "dateModified": "2024-03-01T00:00:00Z",
+  "dateModified": "2024-11-29T00:00:00Z",
   "author":[{
     "@type": "Person",
     "name": "Andrew Liang"

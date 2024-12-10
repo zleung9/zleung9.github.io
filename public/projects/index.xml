@@ -4,7 +4,7 @@
     <title>Courses on Andrew Liang</title>
     <link>/projects/</link>
     <description>Recent content in Courses on Andrew Liang</description>
-    <generator>Hugo -- 0.123.7</generator>
+    <generator>Hugo -- 0.139.3</generator>
     <language>en</language>
     <lastBuildDate>Fri, 29 Nov 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
@@ -13,16 +13,24 @@
       <link>/projects/neural-network-in-c-ii/</link>
       <pubDate>Sat, 02 Mar 2024 00:00:00 +0000</pubDate>
       <guid>/projects/neural-network-in-c-ii/</guid>
-      <description>In Part I we we discussed how to implement the forward calculation, in this article we will continue with the backpropagation.
-Gradient of output layer Considering out simple model with the output layer $z$ and predicted probability $\hat{y}$. The last hidden layer is connected to $z$ via $w_2$. The gradient of loss function w.r.t. $w_2$ is [ref ]: $$ \frac{\partial L}{\partial w_2}=h^T\times(\hat{y}-y) $$
-The second term $\hat{y}-y$ can be given by:</description>
+      <description>&lt;p&gt;In &lt;a href=&#34;/projects/neural-network-in-c-i/&#34;&gt;Part I&lt;/a&gt;
+ we  we discussed how to implement the forward calculation, in this article we will continue with the backpropagation.&lt;/p&gt;
+&lt;h2 id=&#34;gradient-of-output-layer&#34;&gt;Gradient of output layer&lt;/h2&gt;
+&lt;p&gt;Considering out simple model with the output layer $z$ and predicted probability $\hat{y}$. The last hidden layer is connected to $z$ via $w_2$. The gradient of loss function w.r.t. $w_2$ is [&lt;a href=&#34;https://jmlb.github.io/ml/2017/12/26/Calculate_Gradient_Softmax/&#34; target=&#34;_blank&#34;&gt;ref&lt;/a&gt;
+]:
+$$
+\frac{\partial L}{\partial w_2}=h^T\times(\hat{y}-y)
+$$&lt;/p&gt;
+&lt;p&gt;The second term $\hat{y}-y$ can be given by:&lt;/p&gt;</description>
     </item>
     <item>
       <title>A simple neural network built from scratch with C (Part I)</title>
       <link>/projects/neural-network-in-c-i/</link>
       <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
       <guid>/projects/neural-network-in-c-i/</guid>
-      <description>Prototyping a neural network using Python To quickly construct the neural network structure, I will use the Pytorth to construct a simple neural network for demonstration purpose. I purposely left out batchnorm, residual blocks, lower-precision, and other optimizations to keep the code simple and easy to understand. The structure is simple. It contains two fully connected layers with a ReLu activation function in between. First I will implement this class in C language, and then turn it into CUCA enabaled code.</description>
+      <description>&lt;h2 id=&#34;prototyping-a-neural-network-using-python&#34;&gt;Prototyping a neural network using Python&lt;/h2&gt;
+&lt;p&gt;To quickly construct the neural network structure, I will use the Pytorth to construct a simple neural network for demonstration purpose.  I purposely left out batchnorm, residual blocks, lower-precision, and other optimizations to keep the code simple and easy to understand.
+The structure is simple. It contains two fully connected layers with a ReLu activation function in between. First I will implement this class in C language, and then turn it into CUCA enabaled code.&lt;/p&gt;</description>
     </item>
     <item>
       <title>A neural network that carries the physical meaning of XAS spectrum</title>

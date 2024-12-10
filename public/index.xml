@@ -4,7 +4,7 @@
     <title>Andrew Liang</title>
     <link>/</link>
     <description>Recent content on Andrew Liang</description>
-    <generator>Hugo -- 0.123.7</generator>
+    <generator>Hugo -- 0.139.3</generator>
     <language>en</language>
     <lastBuildDate>Sat, 30 Nov 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
@@ -13,15 +13,19 @@
       <link>/blog/isaac-lab-windows/</link>
       <pubDate>Sat, 30 Nov 2024 00:00:00 +0000</pubDate>
       <guid>/blog/isaac-lab-windows/</guid>
-      <description>What is Isaac Lab Isaac Lab is the top layer of the three-layer structure of Omniverse Reinforcement Learning setup. At the bottom is the Nvidia Omniverse platform, which has most fundamental simulation tools such as physics, photorealistic rendering and USD scene creation. The middle layer is Isaac Sim which is packaged with a bunch of core robotic tools. Isaac Lab is built on top of Isaac Sim. It provides a flexible framework for robotic learning that exploits latest simulation technologies, such as reinforcement learning.</description>
+      <description>&lt;h2 id=&#34;what-is-isaac-lab&#34;&gt;What is Isaac Lab&lt;/h2&gt;
+&lt;p&gt;Isaac Lab is the top layer of the three-layer structure of Omniverse Reinforcement Learning setup.
+At the bottom is the Nvidia Omniverse platform, which has most fundamental simulation tools such as physics, photorealistic rendering and USD scene creation. The middle layer is Isaac Sim which is packaged with a bunch of core robotic tools. Isaac Lab is built on top of Isaac Sim. It provides a flexible framework for robotic learning that exploits latest simulation technologies, such as reinforcement learning.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Data Processing for Pre-training Llama 3.1</title>
       <link>/blog/llama3.1-pretraining-data/</link>
       <pubDate>Sun, 22 Sep 2024 13:40:59 -0700</pubDate>
       <guid>/blog/llama3.1-pretraining-data/</guid>
-      <description>The performance of large language models (LLMs) is highly dependent on the quality of the data they are trained on. However, the data curation and cleaning process is underrated in today&amp;rsquo;s discussions of AI.
-This article illustrates how Llama 3.1 developers collect and clean data to be used for pre-training Llama 3.1, which involved a multi-faceted approach to data curation, cleaning, and filtering. The main content is taken from the technical report of Llama 3.</description>
+      <description>&lt;p&gt;&lt;em&gt;The performance of large language models (LLMs) is highly dependent on the quality of the data they are trained on. However, the data curation and cleaning process is underrated in today&amp;rsquo;s discussions of AI.&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;This article illustrates how Llama 3.1 developers collect and clean data to be used for pre-training Llama 3.1, which involved a multi-faceted approach to data curation, cleaning, and filtering. The main content is taken from the technical report of Llama 3.1 that could be found &lt;a href=&#34;https://ai.meta.com/research/publications/the-llama-3-herd-of-models/&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;
+.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Location</title>
@@ -42,39 +46,52 @@ This article illustrates how Llama 3.1 developers collect and clean data to be u
       <link>/blog/patrick-on-jensen/</link>
       <pubDate>Wed, 24 Apr 2024 00:00:00 +0000</pubDate>
       <guid>/blog/patrick-on-jensen/</guid>
-      <description>On April 24th, Patrick Collison, CEO of Stripe, interviewed Jensen Huang, who is the CEO of Nvidia. Below are the main takeaways:
-No One-on-One Meetings. Jensen has 60 directors who report to him, but he prefers not to have one-on-one meetings. By having all 60 directors together at once, he has eliminated at least 7 layers from the company&amp;rsquo;s structure. He believes it is more effective to communicate with all stakeholders simultaneously, allowing information to flow more efficiently among people.</description>
+      <description>&lt;center&gt;&lt;img 
+    src=&#34;patrick-on-jensen.png&#34; 
+    alt=&#34;Patrick interviewing Jensen&#34; 
+    style=&#34;width:auto; height:400px&#34;
+/&gt;&lt;/center&gt;
+&lt;p&gt;On April 24th, Patrick Collison, CEO of Stripe, interviewed Jensen Huang, who is the CEO of Nvidia. Below are the main takeaways:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;No One-on-One Meetings.&lt;/strong&gt; Jensen has 60 directors who report to him, but he prefers not to have one-on-one meetings. By having all 60 directors together at once, he has eliminated at least 7 layers from the company&amp;rsquo;s structure. He believes it is more effective to communicate with all stakeholders simultaneously, allowing information to flow more efficiently among people. Everyone can contribute to and share in the information flow. &lt;strong&gt;Feedback is learning&lt;/strong&gt;. Not only do you work to solve the problem at hand, but you also create conditions for others to learn from your situation. On the other hand, isn&amp;rsquo;t it a great opportunity to learn from other people&amp;rsquo;s mistakes, disasters, and strategies?&lt;/p&gt;</description>
     </item>
     <item>
       <title>爆米花大脑和刷手机</title>
       <link>/blog/popcorn-brain/</link>
       <pubDate>Fri, 12 Apr 2024 08:00:44 -0700</pubDate>
       <guid>/blog/popcorn-brain/</guid>
-      <description>最近听到一个词叫作爆米花大脑， 用来形容由于长时间上网而导致过度刺激，引起大脑神经电路&amp;quot;爆裂&amp;quot;的感觉。&amp;ldquo;爆米花大脑&amp;quot;这个概念是由心理学家Dr. Levy提出的， 与简单的网络成瘾不同，爆米花大脑在现代生活中无处不在，尤其是当人们感到压力或焦虑时更为常见。
-正如哈佛大学医生Aditi Nerurkar所解释的那样，人们不断滚动浏览信息的冲动，本质上是一种由于进化的缘故而根植于人类基因中的扫视危险的本能，这一本能主要由大脑中的杏仁核主导。只不过，现代人已将扫视的对象从物理环境转移到了手机、社交媒体等数字内容上。受这种原始的扫视危险的冲动驱使，过度接触数字信息就会导致精神过度刺激和注意力分散，造成所谓的&amp;quot;爆米花大脑&amp;quot;状态。
-最近休息了一段时间，我才意识到之前我的大脑似乎总是处于一种紧绷状态。收集的信息越来越多，深度思考越来越少；工作时间排得满满当当，大多数时候只是在重复一些既定的行为模式，谈不上高效率，也没有很多创造性的思考。注意力经常涣散，如果在思考时产生短暂的卡顿，就会控制不住地打开手机刷起短视频、新闻等。
-和好友聊到这个话题，他说我们用忙碌来填充无意义工作带来的空虚感，这种忙碌的状态给我们一种高效的错觉。实际上，如《深度工作》一书中提到的，真正重要的是把有限的注意力集中在关键任务上，而非简单地填满时间。这本书提到了&amp;quot;固定日程生产力&amp;quot;的方法，就是将工作内容与时间期限分离开，避免简单地将工作时间等同于工作完成的多少。有时候严格地限制工作时间反而会取得意想不到的效果。
-如何拯救被忙碌和信息洪流毁掉的”爆米花大脑“？通过这段时间的休息，我逐步找到了一些应对之策:
-第一步是真正暂时抽离，放下手头的一切工作和烦扰，给自己一段安静独处的时光。正如中国古语所说&amp;quot;知止而后有定，定而后能静，静而后能安，安而后能虑，虑而后能得&amp;rdquo;。只有先学会停下来，远离纷扰，才能开始审视内心，找到真正重要的事物。
-第二步是做减法，剔除生活中那些不太重要的人和事。对我而言，最重要的是自身的身体健康(其中包括大脑)、与家人朋友的感情联系。很多表面上维系的人际弱联接和害怕错过的信息源，大部分的时间只是在消耗注意力，可以适当的抛弃。我尝试把邮箱里未读的几十封Newsletter统统删掉，第一次感受到前所未有的清爽与轻松。关于弱联接，还有一句话十分受用：不要想着通过强连接来提升自己，或者通过弱连接来证明自己。很多社交上的心累，就是因为过于在意别人对你的看法。
-第三步是建立界限，去掉导致不当行为的诱因(Prompt)。心理学家BJ福格提出了影响行为的&amp;quot;福格行为模型&amp;quot;:B=MAP，其中B是Behavior(行为)，M是Motivation(动机)，A是Ability(能力)，P是Prompt(诱因)。刷手机只需要动动手指，而我们的动机往往以很高，所以一个有效的方法就是去除诱因。为了去掉那些可能诱发分心行为的诱因，我清理了微信上的朋友圈，只选择性关注少数人的朋友圈，我静音了全部消息，包括个人和群组，并把大部分群组都移到了隐藏组里。我给手机设置了晚上10点到早上8点之间是downtime，没有消息提示，并且所以的消息类应用在这期间都无法使用。
-然后我发现，整个世界都清静了。原来主动截断信息并不会让你错过重要的事情，反而让你可以静下来，仔细想想哪些信息和人际关系是重要的。”静而后能安，安而后能虑“，我开始想如何去主动获取少数的重要的信息。这种掌控感很棒。</description>
+      <description>&lt;p&gt;最近听到一个词叫作爆米花大脑， 用来形容由于长时间上网而导致过度刺激，引起大脑神经电路&amp;quot;爆裂&amp;quot;的感觉。&amp;ldquo;爆米花大脑&amp;quot;这个概念是由心理学家Dr. Levy提出的， 与简单的网络成瘾不同，爆米花大脑在现代生活中无处不在，尤其是当人们感到压力或焦虑时更为常见。&lt;/p&gt;
+&lt;p&gt;正如哈佛大学医生Aditi Nerurkar所解释的那样，人们不断滚动浏览信息的冲动，本质上是一种由于进化的缘故而根植于人类基因中的扫视危险的本能，这一本能主要由大脑中的杏仁核主导。只不过，现代人已将扫视的对象从物理环境转移到了手机、社交媒体等数字内容上。受这种原始的扫视危险的冲动驱使，过度接触数字信息就会导致精神过度刺激和注意力分散，造成所谓的&amp;quot;爆米花大脑&amp;quot;状态。&lt;/p&gt;
+&lt;p&gt;最近休息了一段时间，我才意识到之前我的大脑似乎总是处于一种紧绷状态。收集的信息越来越多，深度思考越来越少；工作时间排得满满当当，大多数时候只是在重复一些既定的行为模式，谈不上高效率，也没有很多创造性的思考。注意力经常涣散，如果在思考时产生短暂的卡顿，就会控制不住地打开手机刷起短视频、新闻等。&lt;/p&gt;
+&lt;p&gt;和好友聊到这个话题，他说我们用忙碌来填充无意义工作带来的空虚感，这种忙碌的状态给我们一种高效的错觉。实际上，如《深度工作》一书中提到的，真正重要的是把有限的注意力集中在关键任务上，而非简单地填满时间。这本书提到了&amp;quot;固定日程生产力&amp;quot;的方法，就是将工作内容与时间期限分离开，避免简单地将工作时间等同于工作完成的多少。有时候严格地限制工作时间反而会取得意想不到的效果。&lt;/p&gt;
+&lt;p&gt;如何拯救被忙碌和信息洪流毁掉的”爆米花大脑“？通过这段时间的休息，我逐步找到了一些应对之策:&lt;/p&gt;
+&lt;p&gt;第一步是真正暂时抽离，放下手头的一切工作和烦扰，给自己一段安静独处的时光。正如中国古语所说&amp;quot;知止而后有定，定而后能静，静而后能安，安而后能虑，虑而后能得&amp;rdquo;。只有先学会停下来，远离纷扰，才能开始审视内心，找到真正重要的事物。&lt;/p&gt;
+&lt;p&gt;第二步是做减法，剔除生活中那些不太重要的人和事。对我而言，最重要的是自身的身体健康(其中包括大脑)、与家人朋友的感情联系。很多表面上维系的人际弱联接和害怕错过的信息源，大部分的时间只是在消耗注意力，可以适当的抛弃。我尝试把邮箱里未读的几十封Newsletter统统删掉，第一次感受到前所未有的清爽与轻松。关于弱联接，还有一句话十分受用：不要想着通过强连接来提升自己，或者通过弱连接来证明自己。很多社交上的心累，就是因为过于在意别人对你的看法。&lt;/p&gt;
+&lt;p&gt;第三步是建立界限，去掉导致不当行为的诱因(Prompt)。心理学家BJ福格提出了影响行为的&amp;quot;福格行为模型&amp;quot;:B=MAP，其中B是Behavior(行为)，M是Motivation(动机)，A是Ability(能力)，P是Prompt(诱因)。刷手机只需要动动手指，而我们的动机往往以很高，所以一个有效的方法就是去除诱因。为了去掉那些可能诱发分心行为的诱因，我清理了微信上的朋友圈，只选择性关注少数人的朋友圈，我静音了全部消息，包括个人和群组，并把大部分群组都移到了隐藏组里。我给手机设置了晚上10点到早上8点之间是downtime，没有消息提示，并且所以的消息类应用在这期间都无法使用。&lt;/p&gt;
+&lt;p&gt;然后我发现，整个世界都清静了。原来主动截断信息并不会让你错过重要的事情，反而让你可以静下来，仔细想想哪些信息和人际关系是重要的。”静而后能安，安而后能虑“，我开始想如何去主动获取少数的重要的信息。这种掌控感很棒。&lt;/p&gt;</description>
     </item>
     <item>
       <title>A simple neural network built from scratch with C (Part II)</title>
       <link>/projects/neural-network-in-c-ii/</link>
       <pubDate>Sat, 02 Mar 2024 00:00:00 +0000</pubDate>
       <guid>/projects/neural-network-in-c-ii/</guid>
-      <description>In Part I we we discussed how to implement the forward calculation, in this article we will continue with the backpropagation.
-Gradient of output layer Considering out simple model with the output layer $z$ and predicted probability $\hat{y}$. The last hidden layer is connected to $z$ via $w_2$. The gradient of loss function w.r.t. $w_2$ is [ref ]: $$ \frac{\partial L}{\partial w_2}=h^T\times(\hat{y}-y) $$
-The second term $\hat{y}-y$ can be given by:</description>
+      <description>&lt;p&gt;In &lt;a href=&#34;/projects/neural-network-in-c-i/&#34;&gt;Part I&lt;/a&gt;
+ we  we discussed how to implement the forward calculation, in this article we will continue with the backpropagation.&lt;/p&gt;
+&lt;h2 id=&#34;gradient-of-output-layer&#34;&gt;Gradient of output layer&lt;/h2&gt;
+&lt;p&gt;Considering out simple model with the output layer $z$ and predicted probability $\hat{y}$. The last hidden layer is connected to $z$ via $w_2$. The gradient of loss function w.r.t. $w_2$ is [&lt;a href=&#34;https://jmlb.github.io/ml/2017/12/26/Calculate_Gradient_Softmax/&#34; target=&#34;_blank&#34;&gt;ref&lt;/a&gt;
+]:
+$$
+\frac{\partial L}{\partial w_2}=h^T\times(\hat{y}-y)
+$$&lt;/p&gt;
+&lt;p&gt;The second term $\hat{y}-y$ can be given by:&lt;/p&gt;</description>
     </item>
     <item>
       <title>A simple neural network built from scratch with C (Part I)</title>
       <link>/projects/neural-network-in-c-i/</link>
       <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
       <guid>/projects/neural-network-in-c-i/</guid>
-      <description>Prototyping a neural network using Python To quickly construct the neural network structure, I will use the Pytorth to construct a simple neural network for demonstration purpose. I purposely left out batchnorm, residual blocks, lower-precision, and other optimizations to keep the code simple and easy to understand. The structure is simple. It contains two fully connected layers with a ReLu activation function in between. First I will implement this class in C language, and then turn it into CUCA enabaled code.</description>
+      <description>&lt;h2 id=&#34;prototyping-a-neural-network-using-python&#34;&gt;Prototyping a neural network using Python&lt;/h2&gt;
+&lt;p&gt;To quickly construct the neural network structure, I will use the Pytorth to construct a simple neural network for demonstration purpose.  I purposely left out batchnorm, residual blocks, lower-precision, and other optimizations to keep the code simple and easy to understand.
+The structure is simple. It contains two fully connected layers with a ReLu activation function in between. First I will implement this class in C language, and then turn it into CUCA enabaled code.&lt;/p&gt;</description>
     </item>
     <item>
       <title>A neural network that carries the physical meaning of XAS spectrum</title>
