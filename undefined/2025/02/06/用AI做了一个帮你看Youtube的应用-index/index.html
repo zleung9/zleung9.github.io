@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>用AI做一个帮你看Youtube的应用 | LZ Blog</title>
+  <link rel="stylesheet" href="/css/fonts/Chinese-normal-normal.min.css">
+  <link rel="stylesheet" href="/css/fonts/ChineseMono-normal-normal.min.css">
+  <link rel="stylesheet" href="/css/fonts/Chinese-italic-normal.min.css">
+  <link rel="stylesheet" href="/css/fonts/Chinese-normal-bold.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="我平时在看Youtube视频的时候总在想，如果有一个工具能把我订阅的博主的最新视频看一遍，然后告诉大概内容，我就可以省去看视频的时间，因为我订阅的大部分博主都是信息解读类的，往往只需要一个结构化的总结就够了。
+网上有大量的帮你总结Youtube视频甚至是做笔记的工具，但需要你告诉他你要看哪个视频。有没有这样一个工具，帮你寻遍网络，告诉你这个视频讲了什么，那个视频该不该看，也会节省我大量的时间吧。
+于是我开始构思第一个小产品：一个通过邮件通知你每日博主最新更新的视频总结。为什么要用邮件，因为免去了开发图形界面的各种麻烦。每一个产品，就从最简单的开始吧。
+我用的是Cursor的智能编程功能，我并非软件开发专业人士。果然过程中一波三折，cursor有一点力不从心。但是这一个过程让学到了很多东西，也让人思考未来的软件生态。">
+  
+  
+    <link rel="alternate" href="/atom.xml" title="LZ Blog" type="application/atom+xml">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.4.css">
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <a id="main-nav-toggle" class="nav-icon"></a>
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" target="_blank" rel="noopener" href="https://tinymind.me/zleung9/thoughts">Thoughts</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+    <div class="main-nav-space-between"></div>
+    
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+    
+  </nav>
+</div>
+<!-- Debug info -->
+
+  <div id="header-title">
+    <h1 id="logo-wrap">
+      <a href="/" id="logo">LZ Blog</a>
+    </h1>
+    
+      <h2 id="subtitle-wrap">
+        <a href="/" id="subtitle">我们向着太阳奔跑，试图甩掉身后的影子</a>
+      </h2>
+    
+  </div>
+
+
+      <div id="content" class="outer">
+        <section id="main"><article id="post-用AI做了一个帮你看Youtube的应用-index" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/undefined/2025/02/06/%E7%94%A8AI%E5%81%9A%E4%BA%86%E4%B8%80%E4%B8%AA%E5%B8%AE%E4%BD%A0%E7%9C%8BYoutube%E7%9A%84%E5%BA%94%E7%94%A8-index/" class="article-date">
+  <time class="dt-published" datetime="2025-02-06T14:00:38.908Z" itemprop="datePublished">2025-02-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      用AI做一个帮你看Youtube的应用
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>我平时在看Youtube视频的时候总在想<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果有一个工具能把我订阅的博主的最新视频看一遍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后告诉大概内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我就可以省去看视频的时间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为我订阅的大部分博主都是信息解读类的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>往往只需要一个结构化的总结就够了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>网上有大量的帮你总结Youtube视频甚至是做笔记的工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但需要你告诉他你要看哪个视频<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>有没有这样一个工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>帮你寻遍网络<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>告诉你这个视频讲了什么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那个视频该不该看<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也会节省我大量的时间吧<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>于是我开始构思第一个小产品<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>一个通过邮件通知你每日博主最新更新的视频总结<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>为什么要用邮件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为免去了开发图形界面的各种麻烦<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>每一个产品<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就从最简单的开始吧<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>我用的是Cursor的智能编程功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我并非软件开发专业人士<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>果然过程中一波三折<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>cursor有一点力不从心<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但是这一个过程让学到了很多东西<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也让人思考未来的软件生态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<span id="more"></span>
+<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>内部运行逻辑越来越复杂<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>黑箱<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>很难升级<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br><img src="/youtube-downloader-workflow.png%7C400"></p>
+<h4 id="组件式开发"><a href="#组件式开发" class="headerlink" title="组件式开发"></a>组件式开发</h4><ul>
+<li>Plan<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><ul>
+<li>定义需求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>画流程图<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>分解需求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>面积注释编程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>将需求转化为解决方案<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>定义各个组件的功能<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>面向注释<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span></li>
+<li>数据结构<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>贯穿整个流程的<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>Interface”<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+</li>
+<li>Execution<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><ul>
+<li>单元测试<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>确保每一个组件自洽运行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span></li>
+<li>整体测试<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>保证单元之前的链接有效<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+</li>
+</ul>
+<p>这里面的关键是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>全局优化结构<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只让Agent在一个小任务上优化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span></p>
+<h4 id="Low-code-no-code怎么办？"><a href="#Low-code-no-code怎么办？" class="headerlink" title="Low-code&#x2F;no-code怎么办？"></a>Low-code&#x2F;no-code怎么办<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></h4><p>为什么不直接用low-code平台<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>这个问题其实也等价于另一个问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>AI Agents会不会取代low-code平台<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
+<h4 id="AI时代的个人核心能力"><a href="#AI时代的个人核心能力" class="headerlink" title="AI时代的个人核心能力"></a>AI时代的个人核心能力</h4><p>最后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>越来越发现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>AI时代一个人的核心能力发生了转移<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从解决问题的能力转变为定义问题的能力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这个能力包括明确需求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>定义产品<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这属于现阶段产品经理的范畴<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>分解任务<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>实施开发<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>软件工程师<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>不同的是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这是一个高级软件工程师需要做的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h4 id="用户侧应用是软件行业的3D打印？"><a href="#用户侧应用是软件行业的3D打印？" class="headerlink" title="用户侧应用是软件行业的3D打印？"></a>用户侧应用是软件行业的3D打印<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></h4><p>王昱全的用户侧应用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将来是一个什么样的格局<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>定制化软件会越来越普遍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><br>做应用还是有一定的门槛<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不是每个人都可以做出应用来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>推测会有一个应用构造师<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>专门接活帮人做大大小小的软件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>满足这种各样的需求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>还会有很多的和用户的沟通<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>不会是一个公司推出什么软件<br>用户不知道自己想要什么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但是一个产品摆在他的面前<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他立刻会分辨是不是自己的需求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span><br>一个女生不知道自己喜欢什么样的男生<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但是一个男生出现在她面前<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>她也会<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>一个投资人很多时候也不知道什么样的公司场<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但是一个创业者带着他的产品出现在面前<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他也会立即知道这个团队有没有潜力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>定义需求的能力把人分成两拔<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>创造者(builder, creator, etc.)和消费者(consumer)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>没有这个能力的人注定只会成为后者</p>
+<hr>
+<p>另外很惊喜的是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>希望对着电脑屏幕说就好了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2024-look-back/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          2024年的一些总结
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+    <aside id="sidebar" class="outer">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 20px;">人工智能</a> <a href="/tags/%E5%88%9B%E6%8A%95/" style="font-size: 13.33px;">创投</a> <a href="/tags/%E5%8E%86%E5%8F%B2/" style="font-size: 16.67px;">历史</a> <a href="/tags/%E5%95%86%E4%B8%9A/" style="font-size: 10px;">商业</a> <a href="/tags/%E5%A4%A7%E8%84%91/" style="font-size: 10px;">大脑</a> <a href="/tags/%E5%B0%8F%E8%AF%B4/" style="font-size: 10px;">小说</a> <a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 13.33px;">科幻</a> <a href="/tags/%E7%A7%91%E6%8A%80/" style="font-size: 20px;">科技</a>
+    </div>
+  </div>
+
+  
+</aside>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        <p>&copy; 2025 Zhu Liang</p>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a target="_blank" rel="noopener" href="https://tinymind.me/zleung9/thoughts" class="mobile-nav-link">Thoughts</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="/js/clipboard.min.js"></script>
+<script src="/js/jquery-1.4.3.min.js"></script>
+
+<script src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+<script>
+  MathJax = {
+    options: {
+      enableMenu: false
+    },
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    }
+  };
+</script>
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    CommonHTML: {
+      linebreaks: false
+    }
+  });
+  </script> -->
+<script type="text/javascript" id="MathJax-script" async
+  src="/mathjax/tex-chtml.js">
+</script>
+<!-- <script type="text/javascript"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">
+</script> -->
+
+  </div>
+</body>
+</html>

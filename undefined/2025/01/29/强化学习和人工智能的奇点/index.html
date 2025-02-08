@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>强化学习和人工智能的奇点 | LZ Blog</title>
+  <link rel="stylesheet" href="/css/fonts/Chinese-normal-normal.min.css">
+  <link rel="stylesheet" href="/css/fonts/ChineseMono-normal-normal.min.css">
+  <link rel="stylesheet" href="/css/fonts/Chinese-italic-normal.min.css">
+  <link rel="stylesheet" href="/css/fonts/Chinese-normal-bold.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="Andre Karpathy近日在X平台上也对R1作了评价。评价本身不重要，重要的是他引申出了一个更加深刻的观点，即AI的自我进化可能远超我们想象，这个观点让人细思极恐。
+他提出合成数据和强化学习是等价的。在强化学习的试错过程中，每一次“试验”本质上都是模型生成的合成数据，而它随后根据奖励函数来进行学习。反过来说，当你对合成数据进行筛选和排名时，这个过程实际上就是一个0-1奖励函数。可见，数据很大程度上是算力下游的产物。">
+  
+  
+    <link rel="alternate" href="/atom.xml" title="LZ Blog" type="application/atom+xml">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.4.css">
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <a id="main-nav-toggle" class="nav-icon"></a>
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" target="_blank" rel="noopener" href="https://tinymind.me/zleung9/thoughts">Thoughts</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+    <div class="main-nav-space-between"></div>
+    
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+    
+  </nav>
+</div>
+<!-- Debug info -->
+
+  <div id="header-title">
+    <h1 id="logo-wrap">
+      <a href="/" id="logo">LZ Blog</a>
+    </h1>
+    
+      <h2 id="subtitle-wrap">
+        <a href="/" id="subtitle">我们向着太阳奔跑，试图甩掉身后的影子</a>
+      </h2>
+    
+  </div>
+
+
+      <div id="content" class="outer">
+        <section id="main"><article id="post-强化学习和人工智能的奇点" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/undefined/2025/01/29/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E5%92%8C%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E5%A5%87%E7%82%B9/" class="article-date">
+  <time class="dt-published" datetime="2025-01-29T14:51:26.000Z" itemprop="datePublished">2025-01-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      强化学习和人工智能的奇点
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Andre Karpathy近日在X平台上也对R1作了评价<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>评价本身不重要<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>重要的是他引申出了一个更加深刻的观点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即AI的自我进化可能远超我们想象<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这个观点让人细思极恐<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>他提出合成数据和强化学习是等价的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在强化学习的试错过程中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每一次<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>试验<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>本质上都是模型生成的合成数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而它随后根据奖励函数来进行学习<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>反过来说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当你对合成数据进行筛选和排名时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这个过程实际上就是一个0-1奖励函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>可见<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>数据很大程度上是算力下游的产物<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<span id="more"></span>
+
+<p>不论是人类儿童的学习中还是在深度学习中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>主要存在两种学习模式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ol>
+<li>模仿学习(watch and repeat)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即通过观察别人来学习<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>包括预训练和监督微调<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span></li>
+<li>试错学习(trial and error)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即强化学习<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ol>
+<p>以Alpha Go为例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>第一步是通过模仿顶级人类棋手的对弈来学习<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>第二步则是通过强化学习来优化棋力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从而超越人类的水平<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>深度学习所有令人惊叹的突破<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>几乎都来自第二种学习<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从简单的打砖块游戏<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>到AlphaGo战胜李世石<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>甚至是o1和R1的推理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这些思考路径都是在试错的过程中涌现出来的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这个能力无法通过模仿学习来获得<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为人类的认知有限<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>经常无法准确标注出解决问题的策略<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>因此只有在强化学习的过程中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>才能通过不断试错和统计经验的方式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>发现最有效的测略<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>24年底的大会上Ilya也发表了相似的观点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他说人类现阶段所有的互联网的数据已经被全部用于训练<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>AI无法再从人类产生的数据中获得新知<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它必须合成自有数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>两位AI界的重量级人物同时强调强化学习的重要性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>仔细想想<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>甚至有一点恐怖<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>因为这意味着<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>AI要继续提升<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将不能再模仿人类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而是开启自主训练<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这个训练是不可控的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为它不受现有人类认知水平的束缚<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>其实人类远非智慧物种<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>贪嗔痴慢疑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>五毒俱全<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>人类感知也很有限<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只能看到可见光<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只能听到20-20000Hz的声音<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>受制于24小时昼夜节律<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>甚至只能感知三维空间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>想象一下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>人工智能去除了所有这些限制后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>会以怎样的方式理解世界的本来面目<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
+<p>o1和R1的惊艳表现也许在暗示我们<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>AI自主学习的能力比我们想象的要强很多<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这就能解释众多AI界大佬们纷纷投身于AI医疗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它真的能发现治疗癌症的方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而且大概率是一种我们无法想象的方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它很有可能会在极短的时间内各方面超越人类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且以无法控制的速度离我们远去<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这是就是奇点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024-look-back/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          2024年的一些总结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/undefined/2024/12/19/%E4%BA%92%E8%81%94%E7%BD%91%E5%8F%91%E5%B1%95%E8%AE%B0%E4%BA%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          互联网极简史
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+    <aside id="sidebar" class="outer">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 20px;">人工智能</a> <a href="/tags/%E5%88%9B%E6%8A%95/" style="font-size: 13.33px;">创投</a> <a href="/tags/%E5%8E%86%E5%8F%B2/" style="font-size: 16.67px;">历史</a> <a href="/tags/%E5%95%86%E4%B8%9A/" style="font-size: 10px;">商业</a> <a href="/tags/%E5%A4%A7%E8%84%91/" style="font-size: 10px;">大脑</a> <a href="/tags/%E5%B0%8F%E8%AF%B4/" style="font-size: 10px;">小说</a> <a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 13.33px;">科幻</a> <a href="/tags/%E7%A7%91%E6%8A%80/" style="font-size: 20px;">科技</a>
+    </div>
+  </div>
+
+  
+</aside>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        <p>&copy; 2025 Zhu Liang</p>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a target="_blank" rel="noopener" href="https://tinymind.me/zleung9/thoughts" class="mobile-nav-link">Thoughts</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="/js/clipboard.min.js"></script>
+<script src="/js/jquery-1.4.3.min.js"></script>
+
+<script src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+<script>
+  MathJax = {
+    options: {
+      enableMenu: false
+    },
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    }
+  };
+</script>
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    CommonHTML: {
+      linebreaks: false
+    }
+  });
+  </script> -->
+<script type="text/javascript" id="MathJax-script" async
+  src="/mathjax/tex-chtml.js">
+</script>
+<!-- <script type="text/javascript"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">
+</script> -->
+
+  </div>
+</body>
+</html>
